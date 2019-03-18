@@ -1,0 +1,584 @@
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ [K]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ ls
+CookCo.Rproj
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ sudo mkdidr [K[K[Kr data
+[sudo] password for connor: 
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ ls
+CookCo.Rproj  [0m[01;34mdata[0m
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ ls -l
+total 8
+-rw-r--r-- 1 connor connor  205 Feb 20 10:28 CookCo.Rproj
+drwxr-xr-x 2 root   root   4096 Feb 20 10:35 [0m[01;34mdata[0m
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ sudo chmod -R 777 .
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ sudo chmod -R 777 .ls -l[K
+total 8
+-rwxrwxrwx 1 connor connor  205 Feb 20 10:28 [0m[01;32mCookCo.Rproj[0m
+drwxrwxrwx 2 root   root   4096 Feb 20 10:35 [34;42mdata[0m
+[K]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ cd ..
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ ls
+[0m[34;42mCookCo[0m  [01;34mDissertation[0m  [01;34mR[0m
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=0[K1 -O templates.zip[1@w[1@g[1@e[1@t[1@ 
+--2019-03-07 02:19:22--  https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=1
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.11.1, 2620:100:6050:1::a27d:b01
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.11.1|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: /sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa [following]
+--2019-03-07 02:19:22--  https://www.dropbox.com/sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa
+Reusing existing connection to www.dropbox.com:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckEm-S74zwEjqmBVji1RV62Iu3f3gAi0UJ3NmWU20JSFY-nD5aiLAVhLu1sZCUl92Fl_YCBZIO-gZwH8zfywNqGsbYXOt_czdC_VbZHlTxrxLRLYdTuH0la0OUKBFvwCQ-VTsIZW-1VpxWTJFPWbPsdZKWT2jFRMzV-iDKJ3gWP4Vad10EBZQkdFdCL_2xj6v7440F7sw3avXcpDdXq8aLHng34p7lsy5HtOlWfh0uze11unHo-igLre0MHV6jveY3GOBdgq57DRU8UkW5ChFiU [following]
+--2019-03-07 02:19:22--  https://ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckEm-S74zwEjqmBVji1RV62Iu3f3gAi0UJ3NmWU20JSFY-nD5aiLAVhLu1sZCUl92Fl_YCBZIO-gZwH8zfywNqGsbYXOt_czdC_VbZHlTxrxLRLYdTuH0la0OUKBFvwCQ-VTsIZW-1VpxWTJFPWbPsdZKWT2jFRMzV-iDKJ3gWP4Vad10EBZQkdFdCL_2xj6v7440F7sw3avXcpDdXq8aLHng34p7lsy5HtOlWfh0uze11unHo-igLre0MHV6jveY3GOBdgq57DRU8UkW5ChFiU
+Resolving ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com (ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com)... 162.125.11.6, 2620:100:6050:6::a27d:b06
+Connecting to ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com (ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com)|162.125.11.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/zip]
+Saving to: ‘templates.zip’
+
+templates.zip                         [<=>                                                        ]       0  --.-KB/s               templates.zip                         [ <=>                                                       ]  23.03K  20.8KB/s               templates.zip                         [  <=>                                                      ] 183.01K  78.1KB/s               templates.zip                         [   <=>                                                     ] 303.01K   112KB/s               templates.zip                         [    <=>                                                    ] 575.00K   182KB/s               templates.zip                         [     <=>                                                   ] 830.99K   242KB/s               templates.zip                         [      <=>                                                  ]   1.54M   391KB/s               templates.zip                         [       <=>                                                 ]   1.79M   371KB/s               templates.zip                         [        <=>                                                ]   2.04M   355KB/s               templates.zip                         [         <=>                                               ]   2.04M   306KB/s               templates.zip                         [          <=>                                              ]   2.29M   330KB/s               templates.zip                         [           <=>                                             ]   2.56M   368KB/s    in 7.1s    
+
+2019-03-07 02:19:32 (368 KB/s) - ‘templates.zip’ saved [2680880]
+
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ unzip templates.zip
+Archive:  templates.zip
+warning:  stripped absolute path spec from /
+mapname:  conversion of  failed
+  inflating: .git/objects/c6/d4818069cac126ad3e5306043d62247527a22e  
+  inflating: .git/logs/refs/heads/master  
+  inflating: .git/objects/b5/866e97e7be9fba7df84fe87667a27b9f25c0da  
+  inflating: .git/objects/b3/8d0ec4db5445763d876429d11f6d5f90c9f410  
+  inflating: .git/objects/d1/2aec8a575540aaddc5b2e1dbe0849886d55799  
+  inflating: .git/hooks/pre-commit.sample  
+  inflating: .git/objects/c0/8072652854e5ce36f08a4581cd1de3f023592b  
+   creating: .git/objects/c7/
+   creating: .git/objects/c4/
+  inflating: FOIL/DANY Crime FOIL.pdf  
+   creating: .git/objects/c3/
+   creating: .git/objects/c1/
+  inflating: .git/hooks/pre-rebase.sample  
+   creating: DOC Today/
+  inflating: .git/objects/74/eb438d14d1dcf69075253ea2383a664abb2d78  
+  inflating: .git/objects/cf/36196f178ae463607c6998831bdffd5f823f6d  
+  inflating: ATI/.Rhistory           
+  inflating: .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391  
+  inflating: .git/objects/0e/34ef5a86f65d6b0427c6d571b3829754c31e09  
+   creating: .git/objects/4f/
+   creating: .git/objects/4e/
+  inflating: .git/ORIG_HEAD          
+  inflating: .git/HEAD               
+  inflating: .git/objects/66/1c2c9c2fbc10f43f134169d0a6438abc3ee67f  
+   creating: Sealed Cases/
+   creating: .git/objects/72/
+   creating: .git/objects/70/
+   creating: .git/objects/71/
+   creating: .git/objects/77/
+   creating: .git/objects/75/
+  inflating: .git/objects/d7/03046033a5d11f4566cb8982ed0423900cc147  
+  inflating: .git/objects/65/dbc10b758b29b51f3e85f3070639b4abbbe0c4  
+  inflating: .git/hooks/update.sample  
+  inflating: .git/objects/ce/b3fd3e3f321aae571f20a026392c2410aa1a7b  
+  inflating: .git/objects/b6/0374368bbe2dd7eac656d0db894375741995ea  
+  inflating: doc today/DOC Detailed/.Rhistory  
+  inflating: .git/objects/e9/5f7173a06caf5054ceed8af1e85903d0746e95  
+  inflating: .git/objects/27/1b24248f67b8dc5594c37fbee14fe9dd3dafbc  
+   creating: .git/objects/pack/
+   creating: .git/objects/cb/
+  inflating: .git/logs/HEAD          
+  inflating: .git/objects/9d/ee93cc0c3390a20187b29dec9a5b70801e558f  
+   creating: .git/objects/ca/
+  inflating: .git/objects/8e/1dc101903a53875265bfcb720cc19573108fa6  
+  inflating: .git/objects/ed/86d1b1a0bb03ac02cb1484e49fd942189e677b  
+  inflating: .git/objects/d7/6cf6fdc8925d4224715c8ea53ccb56e293021e  
+   creating: .git/objects/2b/
+   creating: .git/objects/d5/
+  inflating: .git/logs/refs/stash    
+  inflating: .git/objects/2f/9de37a52c6dfdc12ee6f0374efbd9b53f6a98e  
+  inflating: doc today/DOC Detailed/DOC_Detailed.pdf  
+  inflating: .git/logs/refs/remotes/origin/HEAD  
+   creating: .git/objects/d3/
+  inflating: .git/objects/3e/2fc7da550e125b95724399b3952c5cb7d83ba4  
+  inflating: .git/objects/67/cee9e04bfda7d91067749f7be1df3f90f831ae  
+  inflating: .git/hooks/post-update.sample  
+   creating: .git/objects/8c/
+  inflating: .git/objects/66/b2b2caa0eefc2071d82cfe01141cddde5dc635  
+  inflating: .git/objects/6c/d40c8c2cbe50efc942892f8f15df997f6745d5  
+  inflating: .git/objects/c1/158a8abc83eb2d0d9903b20532034f0a67a32f  
+   creating: .git/objects/6e/
+  inflating: .git/objects/05/281dfea3d9f45519e83eaa86fdfa567596c183  
+  inflating: .git/COMMIT_EDITMSG     
+  inflating: .git/objects/2d/335c269cf39bd264535a08e0f26ee6a0b6490a  
+  inflating: .git/objects/0e/abf636f9f6202589e0419f7913bfd21669b527  
+   creating: .git/refs/tags/
+  inflating: .git/objects/68/5aabc3fdeeb7879416ae4de3d7d591a650ad4e  
+  inflating: .git/hooks/pre-receive.sample  
+  inflating: .git/objects/d5/67c27d17249ca1d53320a8a738c386174035b6  
+  inflating: ATI/ATI All.Rmd         
+   creating: .git/objects/48/
+  inflating: .git/objects/b2/11f1c6fa46eb0cfc093790d1c845f8c53718f3  
+  inflating: .git/objects/94/f44e0e006a393a4e7c136da9ba912a0da2b278  
+  inflating: .git/objects/ca/27e9cbe147d06ef20db25cfc51b3d5880b7f04  
+  inflating: .git/objects/e9/ed60caeab42934c29e8e0d4f3def573aaeea92  
+   creating: .git/objects/fa/
+  inflating: doc today/DOC Detailed/DOC Detailed.Rmd  
+  inflating: .git/objects/4e/be2997fe61dd94a499ca3f5d67eb97e6ce414c  
+   creating: .git/objects/fe/
+   creating: .git/objects/fd/
+  inflating: .git/objects/26/a8cd53bfdd070901d4af1c224de7e8f1686ca1  
+  inflating: .git/objects/fd/7c35ec48668c404b087f4d145c97293423ed3e  
+  inflating: .git/objects/a7/0457b615c8663bf00e6eb58444c41efc665f96  
+  inflating: .git/objects/9a/a230152c45829f48bb5091ded868eb557a0314  
+  inflating: .git/objects/a7/6f7a68b2b84bc5f7ec53666b77f711697d7bf9  
+   creating: .git/objects/f2/
+  inflating: .git/objects/77/b885f3fa90db2e25ec122be64be0b059b28616  
+   creating: .git/objects/a4/
+   creating: .git/objects/a5/
+   creating: .git/objects/a6/
+  inflating: .git/objects/dd/81a6608b87c8d0ba81d1a8e142361ce05f32f8  
+  inflating: doc today/DOC Today by Date/DOC_Today_by_Date.pdf  
+  inflating: ATI/ATI SQL.sql         
+  inflating: .git/objects/18/1372850682668a79e7f49c8642c6729c518c20  
+  inflating: .git/objects/b3/6e2fc1152f030166a7719640c02e9a15d4fb1d  
+  inflating: .git/hooks/applypatch-msg.sample  
+  inflating: .git/objects/75/197b59ed0f57c8d7b30d6b9c3010ca48895aee  
+  inflating: .git/objects/68/f0beacdd643e053126c4f508c598fe272f3dcc  
+  inflating: By Screen Year/By_Screen_Year.pdf  
+  inflating: .git/objects/6c/7b9dccc03ad5404674279f2ddc9ee013d957b3  
+  inflating: .git/objects/6e/84a98297e90c2abe49fb0a21c77caad379ee39  
+  inflating: .git/objects/8c/5ab944893258455ac0a0f8377f6cb5f681a276  
+  inflating: By Factor/.Rhistory     
+   creating: .git/refs/heads/
+  inflating: By Factor/By_Factor.pdf  
+   creating: .git/objects/50/
+  inflating: .git/objects/87/eba98a8159d750f83a7dd608a1fafe5d36d6b5  
+   creating: .git/objects/56/
+   creating: .git/objects/58/
+  inflating: .git/objects/72/d7fac1bb06a5340681c90a17b9bc4b58e3d5e5  
+  inflating: .git/objects/20/a7f011738bb5469d5f556fab99fbfa5642ca39  
+   creating: .git/refs/remotes/origin/
+  inflating: .git/objects/9b/f589181c6b0b4baf30f198ec5f31df31bcac2c  
+  inflating: .git/objects/56/9ec86b7214baf86faf535e203c7d4439a2026d  
+  inflating: .git/objects/2b/98888a5ed2fc06066b4dded895c0ec273c74b0  
+  inflating: .git/objects/ee/c4a196cef3ebfcbf77c983f23efab143e5b3ac  
+  inflating: doc today/DOC Today by Date/DOC Today by Date.Rmd  
+  inflating: .git/objects/83/bdbbe541c7da1268a1a2563f92a123dd667867  
+  inflating: .git/objects/bc/fda143805b5a78cda52041e1b20a158eb7300f  
+   creating: .git/objects/aa/
+   creating: .git/objects/ab/
+  inflating: .git/objects/0c/307d9e306d8b137da47d5b41f72b70c4ac1013  
+   creating: .git/objects/4d/
+  inflating: .git/objects/ab/b03fa90b6e808461278bc65b5c4eb64f04b1b3  
+  inflating: By Screen Year/By Screen Year SQL.sql  
+   creating: .git/objects/f0/
+   creating: .git/objects/f3/
+   creating: DOC Today/DOC Over Date Period/
+  inflating: .git/objects/07/f7367c6981ceda8d7cbfd4b7e57f913a1a8235  
+   creating: .git/objects/25/
+   creating: .git/objects/24/
+   creating: .git/objects/5c/
+   creating: .git/objects/5f/
+   creating: .git/objects/22/
+  inflating: .git/objects/f0/d77bffab9d3bf97bcb801518dd15001c53fc46  
+  inflating: .git/objects/de/41c63880da2ca247d000f01094a21ae510be28  
+  inflating: .git/objects/a4/e54b52024ee9aa7ee8cd4917173e0677bfa861  
+  inflating: .git/objects/4f/b068a0f245a2c089e82ae0ba82d54c0d550449  
+  inflating: DOC Today/DOC Walkthrough.docx  
+  inflating: .git/objects/c7/61adea575bb0a17525e1aaba91bd498e042c2d  
+  inflating: .git/objects/fa/cedd3a57f6a194f18d7fa566087bab6165d33e  
+  inflating: .git/objects/ef/77f5479f2f3118dd2b3fe91c0e136982b40c00  
+  inflating: .git/objects/eb/746a7d34236eab7818c14b84fe93609d579fe7  
+  inflating: .git/objects/39/ea3bba4593c41c1178d35bc4e2d7e70ee682ef  
+  inflating: .git/objects/c4/1892e9087ad8d6fb1ff15465b4a1b7775c4024  
+  inflating: .git/objects/96/8ef6502fe71da864f13d51dbe53912e8340f4f  
+  inflating: .git/objects/ee/1539575792824e4740ead8f06e3978428705e9  
+  inflating: .git/objects/90/d3f6e7b5ee7e21719cc7debec2e8819390c95d  
+  inflating: ATI/ATI_All.pdf         
+  inflating: .git/objects/5f/38ccd8757c2c5d14d0ac5713b1b82692ff515a  
+  inflating: .git/objects/d7/db436203c55435b80bdce995bc3d57d138ebaf  
+  inflating: .git/objects/35/1d6bff99b3f3ef6f42fd0f1cc0e8b9632e0490  
+  inflating: .git/refs/heads/master  
+  inflating: .git/objects/48/a6f864eb4a857093f6cc5f2a63ab7ef74bb7de  
+  inflating: By Factor/By Factor SQL.sql  
+  inflating: .git/objects/c3/679ef9e4199ee204843b89c137904431717c2c  
+  inflating: .git/objects/ab/03dbd6c06c49435c318c8d2288633ae5824191  
+  inflating: doc today/DOC Today by Date/DOC Today by Date.sql  
+  inflating: .git/objects/68/652360f2e352913a7fe3bdb6c571c3fa0ba90f  
+  inflating: doc today/DOC Detailed/DOC Detailed with base (NEW) Press.sql  
+  inflating: .git/objects/a7/0c92be4e2a77a71a10fabc97507faa891ae009  
+  inflating: .git/config             
+   creating: .git/objects/info/
+  inflating: FOIL/foil.rmd           
+  inflating: .git/refs/remotes/origin/master  
+  inflating: .git/objects/4d/b622f80758de7832ef2f7c922e638b09ef5fee  
+   creating: .git/objects/0b/
+  inflating: .git/objects/24/f83cb2cf02c84d0fa88fb5237dadd0ea2c0ede  
+  inflating: .git/objects/9d/046290e408ab1c5e04ae723c6b5d2936b5f95d  
+  inflating: .git/objects/07/e2592212cd2db10fcaa9d7e2031d6ceea81f64  
+  inflating: .git/objects/22/b905edd864dd9367630a62141632e5139924ad  
+  inflating: .git/objects/1a/af050266efa0bf8d25437d74574936e74b63a6  
+  inflating: .git/objects/70/232345c7a6372f10ce0aa08db9bdab44ee937d  
+  inflating: .git/objects/82/0f53dcde97718c992c656a11e15306cf53b4ca  
+  inflating: .git/objects/58/0f4bc9af7248ce5f3344884204c67c2f7a9c16  
+  inflating: .git/description        
+  inflating: .git/objects/07/dc22d0e688eaf3867d61a3b487024c966a4485  
+  inflating: .git/objects/9e/2b4e8bf6b35b8a060fd59750589f395375f874  
+  inflating: By Screen Year/By Screen Year.rmd  
+  inflating: .git/objects/c6/cf64371f525b48578d1fb1f1d447563e7b5f68  
+  inflating: .git/objects/bb/9608431bcdf133d947411ace6ec2ffcf0e940d  
+  inflating: .git/objects/18/4f7346fece440384e9c5ff92ee737579bc53de  
+  inflating: .git/objects/12/2141898becff7e85c43e2742647e6e1c22cef7  
+   creating: .git/info/
+  inflating: .git/index              
+  inflating: .git/objects/fd/46ce84b32f75d22560aaed922c5599e344f900  
+  inflating: .git/objects/25/dcbe2bd067f1541d3cb28d10fa1f34f06e73a3  
+  inflating: .git/objects/a4/5bc83efb836fa19e82345e548831de9d167e30  
+   creating: .git/objects/01/
+   creating: .git/objects/04/
+  inflating: .git/objects/d3/2669b575241a1d3ef77df46025196a32221395  
+  inflating: .git/objects/2e/69a10bb16c2c038d188828709acab74909ca7c  
+  inflating: .git/objects/aa/d0690c99742aeb36a73647d159f68812a621fd  
+  inflating: .git/objects/65/004a8bc679ccdb33b046355eba37f319655723  
+  inflating: .git/hooks/pre-push.sample  
+  inflating: .git/hooks/pre-applypatch.sample  
+  inflating: .git/objects/a6/98d27d6dab8ce2b068ad784df98e16d00d72be  
+  inflating: .git/objects/90/87ff00a0d1d541c9a53447ec591fdecd5963ef  
+  inflating: FOIL/.Rhistory          
+   creating: .git/objects/be/
+  inflating: .git/objects/1e/d4c3eff44b7a08d4c30656cc6dbd4a41a72b87  
+   creating: DOC Today/DOC Detailed/
+  inflating: .git/refs/remotes/origin/HEAD  
+  inflating: .git/objects/f2/e2de7bc29f0ed2bcba605a5808095fcbc19445  
+  inflating: .git/objects/a2/381a132eb743cb578b567fae680fb6dadea029  
+  inflating: .git/objects/c6/d4cef161f77e1b97d1abff8dacfc51218a170e  
+  inflating: .git/objects/aa/7403879180fd2f14d4d332ea8174097fbe1425  
+  inflating: doc today/DOC Over Date Period/DOC Over Date Period.sql  
+  inflating: .git/objects/aa/2a4ee31b23fe36de244133aa55bb34b4607733  
+  inflating: .git/objects/be/80bb84aed563ebf91730e1d838825b38c0b5c2  
+  inflating: .git/info/exclude       
+  inflating: .git/objects/18/505643652d8413ca8a4e21476bf2e30d9212ca  
+  inflating: .git/objects/65/d095c52d8eed82770ab4c098f490b363c9ffc5  
+  inflating: .git/objects/71/1a4dc981e2d49f9681218b50ec9f63ae775115  
+   creating: .git/objects/e2/
+  inflating: .git/objects/cb/78d19dd59a41f935c4dc7ff6eda61188b3f6cd  
+   creating: .git/objects/e8/
+  inflating: ADA Assignment/ADA Assignment.sql  
+  inflating: .git/hooks/prepare-commit-msg.sample  
+  inflating: .git/objects/91/3b6d2252dda7605353fc3dd0ba7a7fa96027bd  
+  inflating: .git/objects/f3/a5d8c77e5640b01d77c9c022120b38db7c69d7  
+  inflating: By Factor/By Factor.rmd  
+   creating: .git/objects/6a/
+  inflating: .git/objects/fd/27d78d6919dfaff39415717a5e967ddc48518e  
+  inflating: Sealed Cases/Sealed Cases.sql  
+   creating: DOC Today/DOC Today by Date/
+  inflating: .git/hooks/commit-msg.sample  
+  inflating: .git/objects/01/f5d7fdb8972ecb181de2b44e994abaa505c22e  
+  inflating: .git/objects/e2/24f3e0d4abacb865e188ab562f08fce7b6d98f  
+  inflating: .git/objects/04/51a0797989ded62adca49aaa683a8556264a67  
+  inflating: .git/objects/5c/141ad43929294931adbaa31bd6e489d620b4f2  
+  inflating: .git/objects/e9/caf27db9b7b54a130fac14d601d4d0de448266  
+  inflating: .git/refs/stash         
+  inflating: .git/objects/e8/1c3b26f60b70b4522a80633387567fb4d15123  
+  inflating: .git/objects/0b/674b882d3fe15ef105fb904e254c38f8d04024  
+  inflating: .git/objects/a6/765fc8daab226a4ce5518576040f3be1247526  
+  inflating: .git/FETCH_HEAD         
+  inflating: .git/objects/1d/e9dc5579a81e9e2224eb8a9777f104b06fedd8  
+  inflating: .git/objects/0b/27aba733d79943631f1f8a77641cabc80ef0d1  
+  inflating: .git/objects/a5/578763e3bf01c7689c109ad583eabe4eed7bdd  
+  inflating: .git/objects/1c/8b3c0bb236f0dd0fc82c84852f040369c2f184  
+  inflating: FOIL/2017.10.24 - FOIL - General Crimes.sql  
+  inflating: .git/logs/refs/remotes/origin/master  
+  inflating: .git/objects/50/915aca8c73486cc0a90ca01bb28aa4f241136a  
+  inflating: .git/objects/6a/3ffd44f697bcdf747d17235bc54efd430a8595  
+  inflating: .git/objects/07/a01e9244eb9d5a4b05e54f8cc13e37ab395ad5  
+  inflating: .git/objects/90/6d9a15652f2526bd16aa58ff2dfb816f64979e  
+  inflating: .git/packed-refs        
+  inflating: .git/objects/fe/0a3a32b0e3349e55d3b863f08da4e32c0e612f  
+  inflating: .git/objects/48/335918769fc73ba2ec1b25f8916aa1e066f71f  
+  inflating: .git/objects/a2/6e0026096d7c9f410e33d56cd6f9c46913daad  
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ sudo mkdir Templates
+[sudo] password for connor: 
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ ls
+[0m[01;34m'ADA Assignment'[0m  [01;34m'By Factor'[0m        [34;42mCookCo[0m       [01;34mDissertation[0m   [01;34mR[0m               [01;34mTemplates[0m    [01;31mtemplates.zip[0m
+ [01;34mATI[0m              [01;34m'By Screen Year'[0m  [01;34m'DOC Today'[0m   [01;34mFOIL[0m          [01;34m'Sealed Cases'[0m  [01;34m'doc today'[0m
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ sudo mv tempaltes.zip /Templates
+mv: cannot stat 'tempaltes.zip': No such file or directory
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ sudo mv tempaltes.zip /Templates[1P[1P[1P[1@l[1@a[1@t
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ cd Templates/
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ ls
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ lscd Templates/sudo mv templates.zip /Templatesal[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[Ksudo mkdir Templates[1Punzip templates.zip[76@wget https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=1 -O[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+templates.zip: Permission denied
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ sudo chmod -R 777 .
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ sudo chmod -R 777 .wget https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=1 -O templates.zip
+--2019-03-07 02:21:13--  https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=1
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.11.1, 2620:100:6050:1::a27d:b01
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.11.1|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: /sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa [following]
+--2019-03-07 02:21:13--  https://www.dropbox.com/sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa
+Reusing existing connection to www.dropbox.com:443.
+HTTP request sent, awaiting response... 302 Found
+Location: https://ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckuyVWYnrAAjnz8bQIGgwr-hBUpvV35p3baYKpp50gK4dGT13rxoch8IClIharueSaueYuKCJGSjNCRxw1hljqppSvZl-bSId7A05z0jN9Z3PI41tXnKWcE2px3SjjsPeVSgljoQCtiMe9WAmPKtulML2oY1wmTncN77JwnONglJto7TFAnqVOumvHWz6o1YRCGVm2wib87wv9ERYjVv-6PWWwR-4vX9B1Ptvhr5_5uCDfFGUQIEuuwpi8LDohDCRbosUDrAsJmQSXRFoWYk8vn [following]
+--2019-03-07 02:21:13--  https://ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckuyVWYnrAAjnz8bQIGgwr-hBUpvV35p3baYKpp50gK4dGT13rxoch8IClIharueSaueYuKCJGSjNCRxw1hljqppSvZl-bSId7A05z0jN9Z3PI41tXnKWcE2px3SjjsPeVSgljoQCtiMe9WAmPKtulML2oY1wmTncN77JwnONglJto7TFAnqVOumvHWz6o1YRCGVm2wib87wv9ERYjVv-6PWWwR-4vX9B1Ptvhr5_5uCDfFGUQIEuuwpi8LDohDCRbosUDrAsJmQSXRFoWYk8vn
+Resolving ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com (ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com)... 162.125.11.6, 2620:100:6050:6::a27d:b06
+Connecting to ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com (ucc37fd26bc83209d7c66e3d9296.dl.dropboxusercontent.com)|162.125.11.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/zip]
+Saving to: ‘templates.zip’
+
+templates.zip                         [<=>                                                        ]       0  --.-KB/s               templates.zip                         [ <=>                                                       ]  23.03K  11.7KB/s               templates.zip                         [  <=>                                                      ] 287.01K  97.9KB/s               templates.zip                         [   <=>                                                     ] 287.01K  73.9KB/s               templates.zip                         [    <=>                                                    ] 287.01K  59.4KB/s               templates.zip                         [     <=>                                                   ] 287.02K  56.3KB/s               templates.zip                         [      <=>                                                  ] 303.00K  50.1KB/s               templates.zip                         [       <=>                                                 ] 303.01K  44.2KB/s               templates.zip                         [        <=>                                                ] 558.99K  71.6KB/s               templates.zip                         [         <=>                                               ] 559.00K  64.7KB/s               templates.zip                         [          <=>                                              ] 814.98K  85.0KB/s               templates.zip                         [           <=>                                             ] 814.99K  80.8KB/s               templates.zip                         [            <=>                                            ]   1.06M  98.6KB/s               templates.zip                         [             <=>                                           ]   1.54M   132KB/s               templates.zip                         [              <=>                                          ]   1.79M   140KB/s               templates.zip                         [               <=>                                         ]   1.79M   131KB/s               templates.zip                         [                <=>                                        ]   2.04M   139KB/s               templates.zip                         [                 <=>                                       ]   2.04M   130KB/s               templates.zip                         [                  <=>                                      ]   2.04M   123KB/s               templates.zip                         [                   <=>                                     ]   2.04M   117KB/s               templates.zip                         [                    <=>                                    ]   2.04M   115KB/s               templates.zip                         [                     <=>                                   ]   2.29M   127KB/s               templates.zip                         [                      <=>                                  ]   2.56M   141KB/s    in 19s     
+
+2019-03-07 02:21:34 (141 KB/s) - ‘templates.zip’ saved [2680880]
+
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ unzip templates.zip
+Archive:  templates.zip
+warning:  stripped absolute path spec from /
+mapname:  conversion of  failed
+  inflating: .git/objects/c6/d4818069cac126ad3e5306043d62247527a22e  
+  inflating: .git/logs/refs/heads/master  
+  inflating: .git/objects/b5/866e97e7be9fba7df84fe87667a27b9f25c0da  
+  inflating: .git/objects/b3/8d0ec4db5445763d876429d11f6d5f90c9f410  
+  inflating: .git/objects/d1/2aec8a575540aaddc5b2e1dbe0849886d55799  
+  inflating: .git/hooks/pre-commit.sample  
+  inflating: .git/objects/c0/8072652854e5ce36f08a4581cd1de3f023592b  
+   creating: .git/objects/c7/
+   creating: .git/objects/c4/
+  inflating: FOIL/DANY Crime FOIL.pdf  
+   creating: .git/objects/c3/
+   creating: .git/objects/c1/
+  inflating: .git/hooks/pre-rebase.sample  
+   creating: DOC Today/
+  inflating: .git/objects/74/eb438d14d1dcf69075253ea2383a664abb2d78  
+  inflating: .git/objects/cf/36196f178ae463607c6998831bdffd5f823f6d  
+  inflating: ATI/.Rhistory           
+  inflating: .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391  
+  inflating: .git/objects/0e/34ef5a86f65d6b0427c6d571b3829754c31e09  
+   creating: .git/objects/4f/
+   creating: .git/objects/4e/
+  inflating: .git/ORIG_HEAD          
+  inflating: .git/HEAD               
+  inflating: .git/objects/66/1c2c9c2fbc10f43f134169d0a6438abc3ee67f  
+   creating: Sealed Cases/
+   creating: .git/objects/72/
+   creating: .git/objects/70/
+   creating: .git/objects/71/
+   creating: .git/objects/77/
+   creating: .git/objects/75/
+  inflating: .git/objects/d7/03046033a5d11f4566cb8982ed0423900cc147  
+  inflating: .git/objects/65/dbc10b758b29b51f3e85f3070639b4abbbe0c4  
+  inflating: .git/hooks/update.sample  
+  inflating: .git/objects/ce/b3fd3e3f321aae571f20a026392c2410aa1a7b  
+  inflating: .git/objects/b6/0374368bbe2dd7eac656d0db894375741995ea  
+  inflating: doc today/DOC Detailed/.Rhistory  
+  inflating: .git/objects/e9/5f7173a06caf5054ceed8af1e85903d0746e95  
+  inflating: .git/objects/27/1b24248f67b8dc5594c37fbee14fe9dd3dafbc  
+   creating: .git/objects/pack/
+   creating: .git/objects/cb/
+  inflating: .git/logs/HEAD          
+  inflating: .git/objects/9d/ee93cc0c3390a20187b29dec9a5b70801e558f  
+   creating: .git/objects/ca/
+  inflating: .git/objects/8e/1dc101903a53875265bfcb720cc19573108fa6  
+  inflating: .git/objects/ed/86d1b1a0bb03ac02cb1484e49fd942189e677b  
+  inflating: .git/objects/d7/6cf6fdc8925d4224715c8ea53ccb56e293021e  
+   creating: .git/objects/2b/
+   creating: .git/objects/d5/
+  inflating: .git/logs/refs/stash    
+  inflating: .git/objects/2f/9de37a52c6dfdc12ee6f0374efbd9b53f6a98e  
+  inflating: doc today/DOC Detailed/DOC_Detailed.pdf  
+  inflating: .git/logs/refs/remotes/origin/HEAD  
+   creating: .git/objects/d3/
+  inflating: .git/objects/3e/2fc7da550e125b95724399b3952c5cb7d83ba4  
+  inflating: .git/objects/67/cee9e04bfda7d91067749f7be1df3f90f831ae  
+  inflating: .git/hooks/post-update.sample  
+   creating: .git/objects/8c/
+  inflating: .git/objects/66/b2b2caa0eefc2071d82cfe01141cddde5dc635  
+  inflating: .git/objects/6c/d40c8c2cbe50efc942892f8f15df997f6745d5  
+  inflating: .git/objects/c1/158a8abc83eb2d0d9903b20532034f0a67a32f  
+   creating: .git/objects/6e/
+  inflating: .git/objects/05/281dfea3d9f45519e83eaa86fdfa567596c183  
+  inflating: .git/COMMIT_EDITMSG     
+  inflating: .git/objects/2d/335c269cf39bd264535a08e0f26ee6a0b6490a  
+  inflating: .git/objects/0e/abf636f9f6202589e0419f7913bfd21669b527  
+   creating: .git/refs/tags/
+  inflating: .git/objects/68/5aabc3fdeeb7879416ae4de3d7d591a650ad4e  
+  inflating: .git/hooks/pre-receive.sample  
+  inflating: .git/objects/d5/67c27d17249ca1d53320a8a738c386174035b6  
+  inflating: ATI/ATI All.Rmd         
+   creating: .git/objects/48/
+  inflating: .git/objects/b2/11f1c6fa46eb0cfc093790d1c845f8c53718f3  
+  inflating: .git/objects/94/f44e0e006a393a4e7c136da9ba912a0da2b278  
+  inflating: .git/objects/ca/27e9cbe147d06ef20db25cfc51b3d5880b7f04  
+  inflating: .git/objects/e9/ed60caeab42934c29e8e0d4f3def573aaeea92  
+   creating: .git/objects/fa/
+  inflating: doc today/DOC Detailed/DOC Detailed.Rmd  
+  inflating: .git/objects/4e/be2997fe61dd94a499ca3f5d67eb97e6ce414c  
+   creating: .git/objects/fe/
+   creating: .git/objects/fd/
+  inflating: .git/objects/26/a8cd53bfdd070901d4af1c224de7e8f1686ca1  
+  inflating: .git/objects/fd/7c35ec48668c404b087f4d145c97293423ed3e  
+  inflating: .git/objects/a7/0457b615c8663bf00e6eb58444c41efc665f96  
+  inflating: .git/objects/9a/a230152c45829f48bb5091ded868eb557a0314  
+  inflating: .git/objects/a7/6f7a68b2b84bc5f7ec53666b77f711697d7bf9  
+   creating: .git/objects/f2/
+  inflating: .git/objects/77/b885f3fa90db2e25ec122be64be0b059b28616  
+   creating: .git/objects/a4/
+   creating: .git/objects/a5/
+   creating: .git/objects/a6/
+  inflating: .git/objects/dd/81a6608b87c8d0ba81d1a8e142361ce05f32f8  
+  inflating: doc today/DOC Today by Date/DOC_Today_by_Date.pdf  
+  inflating: ATI/ATI SQL.sql         
+  inflating: .git/objects/18/1372850682668a79e7f49c8642c6729c518c20  
+  inflating: .git/objects/b3/6e2fc1152f030166a7719640c02e9a15d4fb1d  
+  inflating: .git/hooks/applypatch-msg.sample  
+  inflating: .git/objects/75/197b59ed0f57c8d7b30d6b9c3010ca48895aee  
+  inflating: .git/objects/68/f0beacdd643e053126c4f508c598fe272f3dcc  
+  inflating: By Screen Year/By_Screen_Year.pdf  
+  inflating: .git/objects/6c/7b9dccc03ad5404674279f2ddc9ee013d957b3  
+  inflating: .git/objects/6e/84a98297e90c2abe49fb0a21c77caad379ee39  
+  inflating: .git/objects/8c/5ab944893258455ac0a0f8377f6cb5f681a276  
+  inflating: By Factor/.Rhistory     
+   creating: .git/refs/heads/
+  inflating: By Factor/By_Factor.pdf  
+   creating: .git/objects/50/
+  inflating: .git/objects/87/eba98a8159d750f83a7dd608a1fafe5d36d6b5  
+   creating: .git/objects/56/
+   creating: .git/objects/58/
+  inflating: .git/objects/72/d7fac1bb06a5340681c90a17b9bc4b58e3d5e5  
+  inflating: .git/objects/20/a7f011738bb5469d5f556fab99fbfa5642ca39  
+   creating: .git/refs/remotes/origin/
+  inflating: .git/objects/9b/f589181c6b0b4baf30f198ec5f31df31bcac2c  
+  inflating: .git/objects/56/9ec86b7214baf86faf535e203c7d4439a2026d  
+  inflating: .git/objects/2b/98888a5ed2fc06066b4dded895c0ec273c74b0  
+  inflating: .git/objects/ee/c4a196cef3ebfcbf77c983f23efab143e5b3ac  
+  inflating: doc today/DOC Today by Date/DOC Today by Date.Rmd  
+  inflating: .git/objects/83/bdbbe541c7da1268a1a2563f92a123dd667867  
+  inflating: .git/objects/bc/fda143805b5a78cda52041e1b20a158eb7300f  
+   creating: .git/objects/aa/
+   creating: .git/objects/ab/
+  inflating: .git/objects/0c/307d9e306d8b137da47d5b41f72b70c4ac1013  
+   creating: .git/objects/4d/
+  inflating: .git/objects/ab/b03fa90b6e808461278bc65b5c4eb64f04b1b3  
+  inflating: By Screen Year/By Screen Year SQL.sql  
+   creating: .git/objects/f0/
+   creating: .git/objects/f3/
+   creating: DOC Today/DOC Over Date Period/
+  inflating: .git/objects/07/f7367c6981ceda8d7cbfd4b7e57f913a1a8235  
+   creating: .git/objects/25/
+   creating: .git/objects/24/
+   creating: .git/objects/5c/
+   creating: .git/objects/5f/
+   creating: .git/objects/22/
+  inflating: .git/objects/f0/d77bffab9d3bf97bcb801518dd15001c53fc46  
+  inflating: .git/objects/de/41c63880da2ca247d000f01094a21ae510be28  
+  inflating: .git/objects/a4/e54b52024ee9aa7ee8cd4917173e0677bfa861  
+  inflating: .git/objects/4f/b068a0f245a2c089e82ae0ba82d54c0d550449  
+  inflating: DOC Today/DOC Walkthrough.docx  
+  inflating: .git/objects/c7/61adea575bb0a17525e1aaba91bd498e042c2d  
+  inflating: .git/objects/fa/cedd3a57f6a194f18d7fa566087bab6165d33e  
+  inflating: .git/objects/ef/77f5479f2f3118dd2b3fe91c0e136982b40c00  
+  inflating: .git/objects/eb/746a7d34236eab7818c14b84fe93609d579fe7  
+  inflating: .git/objects/39/ea3bba4593c41c1178d35bc4e2d7e70ee682ef  
+  inflating: .git/objects/c4/1892e9087ad8d6fb1ff15465b4a1b7775c4024  
+  inflating: .git/objects/96/8ef6502fe71da864f13d51dbe53912e8340f4f  
+  inflating: .git/objects/ee/1539575792824e4740ead8f06e3978428705e9  
+  inflating: .git/objects/90/d3f6e7b5ee7e21719cc7debec2e8819390c95d  
+  inflating: ATI/ATI_All.pdf         
+  inflating: .git/objects/5f/38ccd8757c2c5d14d0ac5713b1b82692ff515a  
+  inflating: .git/objects/d7/db436203c55435b80bdce995bc3d57d138ebaf  
+  inflating: .git/objects/35/1d6bff99b3f3ef6f42fd0f1cc0e8b9632e0490  
+  inflating: .git/refs/heads/master  
+  inflating: .git/objects/48/a6f864eb4a857093f6cc5f2a63ab7ef74bb7de  
+  inflating: By Factor/By Factor SQL.sql  
+  inflating: .git/objects/c3/679ef9e4199ee204843b89c137904431717c2c  
+  inflating: .git/objects/ab/03dbd6c06c49435c318c8d2288633ae5824191  
+  inflating: doc today/DOC Today by Date/DOC Today by Date.sql  
+  inflating: .git/objects/68/652360f2e352913a7fe3bdb6c571c3fa0ba90f  
+  inflating: doc today/DOC Detailed/DOC Detailed with base (NEW) Press.sql  
+  inflating: .git/objects/a7/0c92be4e2a77a71a10fabc97507faa891ae009  
+  inflating: .git/config             
+   creating: .git/objects/info/
+  inflating: FOIL/foil.rmd           
+  inflating: .git/refs/remotes/origin/master  
+  inflating: .git/objects/4d/b622f80758de7832ef2f7c922e638b09ef5fee  
+   creating: .git/objects/0b/
+  inflating: .git/objects/24/f83cb2cf02c84d0fa88fb5237dadd0ea2c0ede  
+  inflating: .git/objects/9d/046290e408ab1c5e04ae723c6b5d2936b5f95d  
+  inflating: .git/objects/07/e2592212cd2db10fcaa9d7e2031d6ceea81f64  
+  inflating: .git/objects/22/b905edd864dd9367630a62141632e5139924ad  
+  inflating: .git/objects/1a/af050266efa0bf8d25437d74574936e74b63a6  
+  inflating: .git/objects/70/232345c7a6372f10ce0aa08db9bdab44ee937d  
+  inflating: .git/objects/82/0f53dcde97718c992c656a11e15306cf53b4ca  
+  inflating: .git/objects/58/0f4bc9af7248ce5f3344884204c67c2f7a9c16  
+  inflating: .git/description        
+  inflating: .git/objects/07/dc22d0e688eaf3867d61a3b487024c966a4485  
+  inflating: .git/objects/9e/2b4e8bf6b35b8a060fd59750589f395375f874  
+  inflating: By Screen Year/By Screen Year.rmd  
+  inflating: .git/objects/c6/cf64371f525b48578d1fb1f1d447563e7b5f68  
+  inflating: .git/objects/bb/9608431bcdf133d947411ace6ec2ffcf0e940d  
+  inflating: .git/objects/18/4f7346fece440384e9c5ff92ee737579bc53de  
+  inflating: .git/objects/12/2141898becff7e85c43e2742647e6e1c22cef7  
+   creating: .git/info/
+  inflating: .git/index              
+  inflating: .git/objects/fd/46ce84b32f75d22560aaed922c5599e344f900  
+  inflating: .git/objects/25/dcbe2bd067f1541d3cb28d10fa1f34f06e73a3  
+  inflating: .git/objects/a4/5bc83efb836fa19e82345e548831de9d167e30  
+   creating: .git/objects/01/
+   creating: .git/objects/04/
+  inflating: .git/objects/d3/2669b575241a1d3ef77df46025196a32221395  
+  inflating: .git/objects/2e/69a10bb16c2c038d188828709acab74909ca7c  
+  inflating: .git/objects/aa/d0690c99742aeb36a73647d159f68812a621fd  
+  inflating: .git/objects/65/004a8bc679ccdb33b046355eba37f319655723  
+  inflating: .git/hooks/pre-push.sample  
+  inflating: .git/hooks/pre-applypatch.sample  
+  inflating: .git/objects/a6/98d27d6dab8ce2b068ad784df98e16d00d72be  
+  inflating: .git/objects/90/87ff00a0d1d541c9a53447ec591fdecd5963ef  
+  inflating: FOIL/.Rhistory          
+   creating: .git/objects/be/
+  inflating: .git/objects/1e/d4c3eff44b7a08d4c30656cc6dbd4a41a72b87  
+   creating: DOC Today/DOC Detailed/
+  inflating: .git/refs/remotes/origin/HEAD  
+  inflating: .git/objects/f2/e2de7bc29f0ed2bcba605a5808095fcbc19445  
+  inflating: .git/objects/a2/381a132eb743cb578b567fae680fb6dadea029  
+  inflating: .git/objects/c6/d4cef161f77e1b97d1abff8dacfc51218a170e  
+  inflating: .git/objects/aa/7403879180fd2f14d4d332ea8174097fbe1425  
+  inflating: doc today/DOC Over Date Period/DOC Over Date Period.sql  
+  inflating: .git/objects/aa/2a4ee31b23fe36de244133aa55bb34b4607733  
+  inflating: .git/objects/be/80bb84aed563ebf91730e1d838825b38c0b5c2  
+  inflating: .git/info/exclude       
+  inflating: .git/objects/18/505643652d8413ca8a4e21476bf2e30d9212ca  
+  inflating: .git/objects/65/d095c52d8eed82770ab4c098f490b363c9ffc5  
+  inflating: .git/objects/71/1a4dc981e2d49f9681218b50ec9f63ae775115  
+   creating: .git/objects/e2/
+  inflating: .git/objects/cb/78d19dd59a41f935c4dc7ff6eda61188b3f6cd  
+   creating: .git/objects/e8/
+  inflating: ADA Assignment/ADA Assignment.sql  
+  inflating: .git/hooks/prepare-commit-msg.sample  
+  inflating: .git/objects/91/3b6d2252dda7605353fc3dd0ba7a7fa96027bd  
+  inflating: .git/objects/f3/a5d8c77e5640b01d77c9c022120b38db7c69d7  
+  inflating: By Factor/By Factor.rmd  
+   creating: .git/objects/6a/
+  inflating: .git/objects/fd/27d78d6919dfaff39415717a5e967ddc48518e  
+  inflating: Sealed Cases/Sealed Cases.sql  
+   creating: DOC Today/DOC Today by Date/
+  inflating: .git/hooks/commit-msg.sample  
+  inflating: .git/objects/01/f5d7fdb8972ecb181de2b44e994abaa505c22e  
+  inflating: .git/objects/e2/24f3e0d4abacb865e188ab562f08fce7b6d98f  
+  inflating: .git/objects/04/51a0797989ded62adca49aaa683a8556264a67  
+  inflating: .git/objects/5c/141ad43929294931adbaa31bd6e489d620b4f2  
+  inflating: .git/objects/e9/caf27db9b7b54a130fac14d601d4d0de448266  
+  inflating: .git/refs/stash         
+  inflating: .git/objects/e8/1c3b26f60b70b4522a80633387567fb4d15123  
+  inflating: .git/objects/0b/674b882d3fe15ef105fb904e254c38f8d04024  
+  inflating: .git/objects/a6/765fc8daab226a4ce5518576040f3be1247526  
+  inflating: .git/FETCH_HEAD         
+  inflating: .git/objects/1d/e9dc5579a81e9e2224eb8a9777f104b06fedd8  
+  inflating: .git/objects/0b/27aba733d79943631f1f8a77641cabc80ef0d1  
+  inflating: .git/objects/a5/578763e3bf01c7689c109ad583eabe4eed7bdd  
+  inflating: .git/objects/1c/8b3c0bb236f0dd0fc82c84852f040369c2f184  
+  inflating: FOIL/2017.10.24 - FOIL - General Crimes.sql  
+  inflating: .git/logs/refs/remotes/origin/master  
+  inflating: .git/objects/50/915aca8c73486cc0a90ca01bb28aa4f241136a  
+  inflating: .git/objects/6a/3ffd44f697bcdf747d17235bc54efd430a8595  
+  inflating: .git/objects/07/a01e9244eb9d5a4b05e54f8cc13e37ab395ad5  
+  inflating: .git/objects/90/6d9a15652f2526bd16aa58ff2dfb816f64979e  
+  inflating: .git/packed-refs        
+  inflating: .git/objects/fe/0a3a32b0e3349e55d3b863f08da4e32c0e612f  
+  inflating: .git/objects/48/335918769fc73ba2ec1b25f8916aa1e066f71f  
+  inflating: .git/objects/a2/6e0026096d7c9f410e33d56cd6f9c46913daad  
+]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ 
