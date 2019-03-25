@@ -1,7 +1,7 @@
 ---
-title:   "| Prostitution\n| PL 230.00\n \n"
-author: "Planning and Management"
-date: "`r format(Sys.time(),'%B  %d, %Y')`"
+title:   "| Cook County State's Attorney\n| Caseload Volume\n \n"
+author: "Connor Concannon"
+date: "`r format(Sys.time(),'%B  %d, %Y') `"
 output: pdf_document
 geometry: margin=.5in
 fontsize: 12pt
@@ -44,13 +44,9 @@ options(scipen=1000)
 
 lapply(pkgs, require, character.only = T)
 tic()
-# library(sqldf);library(DescTools);library(purrr);library(ggplot2)
-# library(stringr);library(forcats);library(xtable);library(ggalt)
-# library(knitr);library(kableExtra);library(janitor);library(scales);
-# library(Cairo)
 
-#Set to current working directory here
-#setwd("P:/Bureau Data/PLANNING/Data Requests/Example File Path")
+
+
 options(scipen = 1000,stringsAsFactors = FALSE)
 #================
 #Import and Clean
@@ -60,34 +56,10 @@ infile <- here::here("data", "dataset.feather")
 d <- read_feather(infile)
 
 
-# dms <- odbcConnect("dms")
-# d <- sqlQuery(dms,"select distinct * from ##patronizing") #UNIQUE-TO-QUERY ##TABLE NAME FOR R
-
-#Character for grouping
-# d$ScreenYear <- as.character(d$ScreenYear)
-# 
-# #Flags for counting
-# d <- d  %>% 
-#   filter(!is.na(DefendantID)) %>% 
-#   mutate(CasesCommenced = ifelse(is.na(DefendantID)==F,1,0),
-#          CasesDeclined = ifelse(IsDP==1,1,0),
-#          CasesCharged = ifelse(IsDP==0,1,0),
-#          CasesArraignSupreme = ifelse(is.na(ARCSurvive) & Indicted==1,1,0),
-#          CasesArraigned = ifelse(IsDP==0 & is.na(ARCSurvive)==F,1,0),
-#          CasesDisposedArraignment = ifelse(ARCSurvive==0,1,0),
-#          CasesSurvivingArraignment = ifelse(ARCSurvive==1,1,0),
-#          CasesIndicted = ifelse(Indicted==1,1,0),
-#          CasesDisposed = ifelse(is.na(DspCondensed)==F,1,0),
-#          CasesSentenced = ifelse(DspCondensed %in% c("Plea","Convicted"),1,0),
-#          CasesDismissed = ifelse(DspCondensed %in% c("Evidence Dismissal","30.30 Speedy",
-#                                                      "Other Non ACD/M Dismissal","ACD/M Dismissal"),1,0),
-#          CasesDismissedACD = ifelse(DspCondensed %in% c("ACD/M Dismissal"),1,0),
-#          CasesDismissedNONACD = ifelse(DspCondensed %in% c("Evidence Dismissal","30.30 Speedy",
-#                                                            "Other Non ACD/M Dismissal"),1,0),
-#          CasesBWO = ifelse(CaseStatus=="Outstanding Bench Warrant", 1,0))
-
 ```
 
+
+[^1]: These reports were generated from the data available on the CCSAO open data portal and are probably not accurate! All code required to generate this report is available on [Github](http://github.com/concannon/CookCo).
 
 ```{r generic summary,echo=F,results='asis', eval = T}
 
@@ -95,36 +67,23 @@ d <- read_feather(infile)
 #Screen
 #================
 
-# glimpse(d)
-# Desc(d$EVENT)
-# Desc(d$EVENT~d$disp)
-# 
-# 
-# d %>% 
-#   group_by(EVENT,disp) %>% 
-#   tally(sort=T)
-
 screen <-   d %>%
   group_by(arrest_year) %>%
   summarise(`Commenced` = n_distinct(CASE_PARTICIPANT_ID),
             `via Preliminary Hearing`=sum(`EVENT_Preliminary Hearing`),
-            `via Indictment` = sum(EVENT_Indictment)
-            # `Nolle Pros.` = sum(ifelse(),na.rm = T),
-            # `Charged` = sum(CasesCharged,na.rm = T),
-            # `Not Arraigned - SCA or SCI` = sum(CasesArraignSupreme,na.rm = T),
-            # `Arraigned` = sum(CasesArraigned,na.rm = T),
-            # `Disposed at Arr.` = sum(CasesDisposedArraignment,na.rm = T),
-            # `Survived Arr.` = sum(CasesSurvivingArraignment,na.rm = T),
-            # `Indicted` = sum(CasesIndicted,na.rm = T),
-            # `Pled Guilty or Convicted` = sum(CasesSentenced,na.rm = T),
-            # `Dismissed` = sum(CasesDismissed,na.rm = T),
-            # `ACD` = sum(CasesDismissedACD,na.rm = T),
-            # `Non-ACD` = sum(CasesDismissedNONACD,na.rm = T),
-            # `Outstanding Bench Warrant` = sum(CasesBWO, na.rm = T)
+            `via Indictment` = sum(EVENT_Indictment),
+            `via Other` = sum(`EVENT_Direct Indictment`+`EVENT_Grand Jury`,na.rm = T),
+            `Cases Approved`=sum(PARTICIPANT_STATUS=="Approved"),
+            `Cases Not Approved`=sum(!PARTICIPANT_STATUS=="Approved"),
+             Disposed=sum(disposed.x),
+            `Nolle Prosecution` = sum(`disp_Nolle Prosecution`),
+            `Plea Guilty` = sum(`disp_Plea Of Guilty`+
+                                  `disp_Finding Guilty` + `disp_Verdict Guilty`),
+            `Not Guilty` = sum(disp_FNG + `disp_Verdict-Not Guilty`),
+            `No Probable Cause` = sum(disp_FNPC)
             ) %>%
   t() %>%
   as.data.frame() %>%
-  #as_tibble() %>% 
   rownames_to_column(var = " ") %>%
   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>% 
   filter(` `!="arrest_year") %>% 
@@ -135,44 +94,38 @@ screen <-   d %>%
 #Dsp
 #================
 
-# dsp <- d %>%
-#   filter(CasesDisposed==1) %>%
-#   group_by(ScreenYear,DspCondensed) %>%
-#   summarise(Dispositions = n()) %>%
-#   spread(DspCondensed,Dispositions,fill = 0) %>%
-#   ungroup() %>%
-#   mutate(`Plea (%)` = `Plea`/rowSums(.[,2:ncol(.)]),
-#          `Convicted (%)` = `Convicted`/rowSums(.[,2:ncol(.)]),
-#          `ACD/M Dismissal (%)` = `ACD/M Dismissal`/rowSums(.[,2:ncol(.)]),
-#          `30.30 Speedy (%)` = `30.30 Speedy`/rowSums(.[,2:ncol(.)]),
-#          `Evidence Dismissal (%)` = `Evidence Dismissal`/rowSums(.[,2:ncol(.)]),
-#          `Other Non ACD/M Dismissal (%)` = `Other Non ACD/M Dismissal`/rowSums(.[,2:ncol(.)]),
-#          #`Acquitted (%)` = `Acquitted`/rowSums(.[,2:ncol(.)]),
-#          #`Other (%)` = `Other`/rowSums(.[,2:ncol(.)]),
-#          Disposed = rowSums(.[,2:ncol(.)]))  %>%
-#   select(ScreenYear,
-#          `Plea`,`Plea (%)`,
-#          `Convicted`,`Convicted (%)`,
-#          `ACD/M Dismissal`,`ACD/M Dismissal (%)`,
-#          `30.30 Speedy`,`30.30 Speedy (%)`,
-#          `Evidence Dismissal`,`Evidence Dismissal (%)`,
-#          `Other Non ACD/M Dismissal`,`Other Non ACD/M Dismissal (%)`,
-#          #`Acquitted`,`Acquitted (%)`,
-#          #`Other`,`Other (%)`,
-#          Disposed) %>% 
-#   t() %>%
-#   as.data.frame() %>%
-#   as_tibble() %>% 
-#   rownames_to_column(var = " ") %>%
-#   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>% 
-#   filter(` `!="ScreenYear") %>% 
-#   mutate_at(vars(-1),as.numeric) %>%
-#   mutate(Total = case_when(grepl("%",` `)==T ~
-#                              lag(rowSums(.[,2:ncol(.)]))/
-#                              rowSums(.[nrow(.),2:ncol(.)]),
-#                            TRUE ~
-#                              rowSums(.[,2:ncol(.)]))) %>%
-#   mutate_at(vars(-1),funs(ifelse(grepl("%",` `)==T,paste0(round(100*.,1),"%"),comma(.,digits = 0))))
+dsp <- 
+  d %>%
+  filter(disposed.x==1) %>%
+  group_by(arrest_year,disp) %>%
+  summarise(Dispositions = n()) %>%
+  spread(disp,Dispositions,fill = 0) %>%
+  ungroup() %>%
+  mutate(`Nolle Pros. (%)` = `Nolle Prosecution`/rowSums(.[,2:ncol(.)]),
+         `Plea (%)` = `Plea Of Guilty`/rowSums(.[,2:ncol(.)]),
+         `Verdict Guilty (%)` = `Verdict Guilty`/rowSums(.[,2:ncol(.)]),
+         `Verdict Not Guilty (%)` = `Verdict-Not Guilty`/rowSums(.[,2:ncol(.)]),
+         `No P.C. (%)` = FNPC/rowSums(.[,2:ncol(.)]),
+         Disposed = rowSums(.[,2:ncol(.)]))  %>%
+  select(arrest_year,
+         `Nolle Prosecution`, `Nolle Pros. (%)`,
+         `Plea Of Guilty`,`Plea (%)`,
+         `Verdict Guilty`,`Verdict Guilty (%)`,
+          FNPC, `No P.C. (%)`,
+         `Verdict-Not Guilty`,`Verdict Not Guilty (%)`,
+         Disposed) %>%
+  t() %>%
+  as.data.frame() %>%
+  rownames_to_column(var = " ") %>%
+  set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>%
+  filter(` `!="arrest_year") %>%
+  mutate_at(vars(-1),as.numeric) %>%
+  mutate(Total = case_when(grepl("%",` `)==T ~
+                             lag(rowSums(.[,2:ncol(.)]))/
+                             rowSums(.[nrow(.),2:ncol(.)]),
+                           TRUE ~
+                             rowSums(.[,2:ncol(.)]))) %>%
+  mutate_at(vars(-1),funs(ifelse(grepl("%",` `)==T,paste0(round(100*.,1),"%"),comma(.,digits = 0))))
 
 #================
 #Sen
@@ -258,27 +211,28 @@ This report summarizes `r nrow(d)` Prostitution arrests between 2010 and 2017. D
 ```
 
 
+###Arrests [^1]
+
 ```{r,echo=F, results='asis', eval = T}
 
 kable(screen,format = "latex",booktabs = T,
       align = c("l",rep("c",ncol(screen))),digits = 0,
       format.args = list(big.mark = ","),linesep = "",
-      caption = "Prostitution Arrests, 2010 - 2017") %>%
+      caption = "Arrests, 2012 - 2018") %>%
   kable_styling(latex_options = c("striped","HOLD_position")) %>% 
-  add_indent(c(which(screen$` ` %in% c("via Preliminary Hearing", "via Indictment","Declined","Charged",
-                                       "Disposed at Arr.","Survived Arr.",
-                                       "ACD","Non-ACD"))))
-
+  add_indent(c(which(screen$` ` %in% c("via Preliminary Hearing", "via Indictment","via Other",
+                                       "Nolle Prosecution", "Plea Guilty", "Not Guilty",
+                                       "No Probable Cause"))))
 ```
 
 ###Dispositions
 
-```{r,echo=F,results='asis', eval = F}
+```{r,echo=F,results='asis', eval = T}
 
 kable(dsp,format = "latex",booktabs = T,
       align = c("l",rep("c",ncol(dsp))),digits = 0,
       format.args = list(big.mark = ","),linesep = "",
-      caption = "Prostitution Dispositions, 2010 - 2017") %>%
+      caption = "Dispositions, 2012 - 2018") %>%
   kable_styling(latex_options = c("striped","HOLD_position","scale_down")) %>%
   add_indent(c(which(grepl("%",dsp$` `)==T))) %>% 
   row_spec(nrow(dsp),bold = T) %>% 
@@ -318,7 +272,8 @@ kable(sen,format = "latex",booktabs = T,
 
 
 
-```{r}
+```{r, eval = T}
 toc()
+
 
 ```

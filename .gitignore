@@ -3,3 +3,4 @@
 *.Rproj
 *.feather
 data/
+.Rproj.user

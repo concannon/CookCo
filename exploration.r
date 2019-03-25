@@ -1,6 +1,6 @@
 
 pkgs <- c("tidyverse", "here", "DescTools", "skimr",
-          "lubridate", "sjmisc", "tictoc")
+          "lubridate", "sjmisc", "tictoc", "feather")
 
 options(scipen=1000)
 #Report: https://www.cookcountystatesattorney.org/sites/default/files/files/documents/ccsao_2017_data_report_180220.pdf
@@ -10,31 +10,34 @@ lapply(pkgs, require, character.only = T)
 tic()
 
 ##Intake - all people arrested
-
-int <- here::here('data','intake.csv')
+int <- here::here("data", "intake.csv")
 
 int <- read.csv(int)
 
 
 ##Initiation - all people charged
-
-
-init <- here::here('data','initiation.csv')
+init <- here::here("data", "initiation.csv")
 
 i <- read.csv(init)
 
 
 
 ##Dispositions
-
-
-
-
-disp <- here::here('data','dispositions.csv')
+disp <- here::here("data", "dispositions.csv")
 
 d <- read.csv(disp)
 
+
+
+##Sentencing
+sen <- here::here("data","sentencing.csv")
+
+s <- read.csv(sen)
+
+
 ##Cleanup
+
+###Intake
 int2 <- int %>% 
   mutate(ARREST_DATE = mdy_hms(ARREST_DATE),
          arrest_year = as.character(year(ARREST_DATE))) %>% 
@@ -51,11 +54,12 @@ int2 <- int %>%
                 LAW_ENFORCEMENT_AGENCY
   )
 
+rm(int)
 
 
-
+###Initiation
 i2 <- i %>% 
-  dplyr::filter(PRIMARY_CHARGE == 'true') %>% 
+  dplyr::filter(PRIMARY_CHARGE == "true") %>% 
   mutate(EVENT_DATE = mdy_hms(EVENT_DATE),
          event_year = as.character(year(EVENT_DATE))) %>% 
   filter(EVENT_DATE <= today(),event_year >= 2012) %>% 
@@ -66,20 +70,21 @@ i2 <- i %>%
                 event_year
   )
 
+rm(i)
 
-
+###Dispositions
 d2 <- d %>% 
-  mutate(class_order = case_when(CLASS == 'X' ~ 1,
-                                 CLASS == '1' ~ 2,
-                                 CLASS == '2' ~ 3,
-                                 CLASS == '3' ~ 4,
-                                 CLASS == '4' ~ 5,
+  mutate(class_order = case_when(CLASS == "X" ~ 1,
+                                 CLASS == "1" ~ 2,
+                                 CLASS == "2" ~ 3,
+                                 CLASS == "3" ~ 4,
+                                 CLASS == "4" ~ 5,
                                  TRUE ~ 9),
          disp = forcats::fct_lump(CHARGE_DISPOSITION, prop = .005),
          disposed = 1,
          gbp = case_when(disp %in% c("Plea Of Guilty", "Finding Guilty", "Verdict Guilty") ~ 1, 
                          TRUE ~ 0),
-         race2 = case_when(RACE %in% c('Asian', "ASIAN") ~ "Asian",
+         race2 = case_when(RACE %in% c("Asian", "ASIAN") ~ "Asian",
                            RACE %in% c("Black") ~ "Black",
                            RACE %in% c("White", "CAUCASIAN") ~ "White",
                            RACE %in% c("HISPANIC", "White [Hispanic or Latino]", "White/Black [Hispanic or Latino]") ~ "Latino",
@@ -100,7 +105,7 @@ d2 <- d %>%
                 class_order) 
 
 
-
+rm(d)
 
 d3 <- d2 %>% 
   group_by(CASE_PARTICIPANT_ID) %>% 
@@ -108,6 +113,7 @@ d3 <- d2 %>%
   filter(row_number()==1)
 
 
+###Guilty Charges
 gbp <- d2 %>% 
   filter(gbp == 1) %>% 
   select(-race2) %>% 
@@ -120,27 +126,42 @@ gbp2 <- gbp %>%
   arrange(class_order) %>% 
   filter(row_number()==1)
 
-# d3 %>% 
-#   group_by(CASE_PARTICIPANT_ID) %>% 
-#   tally(sort = T) %>% 
-#   head(10)
 
+rm(gbp)
 
+###Sentences
+s2 <- s %>% 
+  filter(SENTENCE_PHASE == "Original Sentencing",
+         PRIMARY_CHARGE == "true") %>% 
+  mutate(class_order = case_when(CLASS == "X" ~ 1,
+                                 CLASS == "1" ~ 2,
+                                 CLASS == "2" ~ 3,
+                                 CLASS == "3" ~ 4,
+                                 CLASS == "4" ~ 5,
+                                 TRUE ~ 9),
+         sentenced = 1 
+  ) %>% 
+  select(CASE_PARTICIPANT_ID,
+         CLASS,
+         class_order,
+         SENTENCE_TYPE,
+         COMMITMENT_TYPE,
+         COMMITMENT_TERM,
+         COMMITMENT_UNIT,
+         LENGTH_OF_CASE_in_Days
+  ) %>% 
+  group_by(CASE_PARTICIPANT_ID) %>% 
+  arrange(class_order) %>% 
+  filter(row_number()==1)
 
-# d2 %>% 
-#   filter(CASE_PARTICIPANT_ID == 1033282518663) %>%
-#   distinct() #%>%   View()
+rm(s)
 
-
-
-
-
-
-
+###Joining final dataset
 df <- int2 %>% 
   left_join(i2, by = "CASE_PARTICIPANT_ID") %>% 
   left_join(d3, by = "CASE_PARTICIPANT_ID") %>% 
-  left_join(gbp2, by = "CASE_PARTICIPANT_ID") 
+  left_join(gbp2, by = "CASE_PARTICIPANT_ID") %>% 
+  left_join(s2, by = "CASE_PARTICIPANT_ID")
 
 
 
