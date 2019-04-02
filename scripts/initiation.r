@@ -6,8 +6,6 @@ options(scipen=1000)
 
 
 lapply(pkgs, require, character.only = T)
-
-
 ##Initiation - all people charged
 init <- here::here("data", "initiation.csv")
 
