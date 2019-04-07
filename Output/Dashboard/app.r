@@ -26,7 +26,7 @@ sidebar <-  dashboardSidebar(
     menuItem("Dashboard",tabName="dashboard", icon = icon("chart-line")),
     menuItem("Filters",tabName="filters", icon = icon("users"), startExpanded = T,
               sliderInput("filter_year", "Year", min=2012, max=2018, value = c(2012, 2018)),
-              selectizeInput("filter_event", "Case Type",choices = levels(df$EVENT), selected=NULL)
+              selectizeInput("filter_event", "Case Type",choices = levels(df$EVENT), multiple = T)
   )))
 
 
