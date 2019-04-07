@@ -1,5 +1,5 @@
 ---
-title:   "| Cook County State's Attorney\n| Caseload Volume\n \n"
+title:   "| Cook County State's Attorney\n| `r params$data` Caseload Volume\n \n"
 author: "Connor Concannon"
 date: "`r format(Sys.time(),'%B  %d, %Y') `"
 output: pdf_document
@@ -23,6 +23,8 @@ header-includes:
 - \usepackage[normalem]{ulem}
 editor_options: 
   chunk_output_type: console
+params:
+  data: Narcotics
 ---
 
 
@@ -54,10 +56,14 @@ options(scipen = 1000,stringsAsFactors = FALSE)
 
 infile <- here::here("data", "dataset.feather")
 d <- read_feather(infile)
+d <- d %>%  filter(Offense_Category == params$data)
+#glimpse(d)
 
+#Desc(d$Offense_Category)
 
 ```
 
+This report desribes `r n_distinct(d$CASE_PARTICIPANT_ID)` `r params$data` defendants.
 
 [^1]: These reports were generated from the data available on the CCSAO open data portal and are probably not accurate! All code required to generate this report is available on [Github](http://github.com/concannon/CookCo).
 
@@ -66,6 +72,7 @@ d <- read_feather(infile)
 #================
 #Screen
 #================
+
 
 screen <-   d %>%
   group_by(arrest_year) %>%
@@ -131,6 +138,9 @@ dsp <-
 #Sen
 #================
 
+
+glimpse(d)
+
 # sen <- d %>%
 #   filter(CasesSentenced==1) %>%
 #   group_by(ScreenYear,SentenceType) %>%
@@ -155,13 +165,13 @@ dsp <-
 #          `Day Custody Program`,`Day Custody Program (%)`,
 #          `Time Served`,`Time Served (%)`,
 #          `Other`,`Other (%)`,
-#          Sentenced) %>% 
+#          Sentenced) %>%
 #   t() %>%
-#   as.data.frame() %>% 
-#   as_tibble() %>% 
+#   as.data.frame() %>%
+#   as_tibble() %>%
 #   rownames_to_column(var = " ") %>%
-#   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>% 
-#   filter(` `!="ScreenYear") %>% 
+#   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>%
+#   filter(` `!="ScreenYear") %>%
 #   mutate_at(vars(-1),as.numeric) %>%
 #   mutate(Total = case_when(grepl("%",` `)==T ~
 #                              lag(rowSums(.[,2:ncol(.)]))/
@@ -256,7 +266,7 @@ kable(dsp_code,format = "latex",booktabs = T,
 
 ###Sentences
 
-```{r,echo=F,results='asis', eval = F}
+```{r,echo=F,results='asis', eval = T}
 
 kable(sen,format = "latex",booktabs = T,
       align = c("l",rep("c",ncol(sen))),digits = 0,

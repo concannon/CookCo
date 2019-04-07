@@ -1,16 +1,4 @@
-# library(shinydashboard)
-# library(leaflet)
-# library(dplyr)
-# library(httr); set_config(use_proxy(url='10.229.55.48',port=9191,username='linuxit',password='LIdany12'))
-# library(ggplot2)
-# library(ggmap)
-# library(RColorBrewer)
-# library(tidyr)
-# library(reshape2)
-# library(DT)
-# library(stringr)
-
-
+#
 
 pkgs <- c("shinydashboard", "tidyr", "DT",
           "tidyverse", "here", "DescTools", "skimr",
@@ -24,80 +12,75 @@ options(scipen=1000)
 
 lapply(pkgs, require, character.only = T)
 
-#install.packages('ggmap')
 
-#load("/srv/shiny-server/Programs/Program workspace.RData")
-
-
-# Nathan's edits
-#setwd("P:/Bureau Data/PLANNING/Data Requests/2016.05.05 - Diversion Imogen/Programs")
+file <- here::here("data", "dataset.feather")
+df <- read_feather(file)
 
 
-
-header <-   dashboardHeader(title='Program Providers, v1.0',
+header <-   dashboardHeader(title="Cook County State's Attorney",
                             titleWidth=300)
 
 sidebar <-  dashboardSidebar(
   width=300,
   sidebarMenu(
-    menuItem("Map",tabName='Map'),
-    menuItem('Table',tabName='List')
-  ))
+    menuItem("Dashboard",tabName="dashboard", icon = icon("chart-line")),
+    menuItem("Filters",tabName="filters", icon = icon("users"), startExpanded = T,
+              sliderInput("filter_year", "Year", min=2012, max=2018, value = c(2012, 2018)),
+              selectizeInput("filter_event", "Case Type",choices = levels(df$EVENT), selected=NULL)
+  )))
 
+
+
+#DescTools::Desc(df$EVENT)
 
 body <-   dashboardBody(
   tabItems(
-    tabItem(tabName='Map',
+    tabItem(tabName="dashboard",
             fluidRow(
-              #leafletOutput('map',height=800,width="100%")
-              textInput("ada","ADA",""),
-              actionButton("submit","Submit")
-            )
-    ),
-    tabItem(tabName='List',
+              column(6, plotOutput("plot1")),
+              column(6, plotOutput("plot2"))
+                    ),
             fluidRow(
-              dataTableOutput('table')
-              
+              column(6, plotOutput("plot3")),
+              column(6, plotOutput("plot4"))
             )
+    
     )
   )
 )
 
 
 shinyApp(
-  ui = dashboardPage(header, sidebar, body),
+  ui = dashboardPage(header, sidebar, body, skin = "green"),
   server = function(input, output,session) {
     
+    # Data
+    
+    dataset <- reactive({ df })
+    
+    dataset_filtered <- reactive({ 
+      dataset() %>% 
+        filter(arrest_year >= input$filter_year[1],
+               arrest_year <= input$filter_year[2])})
     
     
     
+    output$plot1 <- renderPlot({
+      qplot(mtcars$mpg)
+    })
+    
+    output$plot2 <- renderPlot({
+      qplot(mtcars$cyl)
+    })
     
     
+    output$plot3 <- renderPlot({
+      dataset_filtered() %>% 
+        group_by(arrest_year) %>% 
+        summarise(number = n()) %>% 
+        ggplot(aes(arrest_year, number, group = 1))+geom_line()
+    })
     
-    # Create filtered map
-    #output$map <- renderLeaflet(
-    #   map <- leaflet() %>%
-    #     addProviderTiles("CartoDB.Positron") %>%
-    #     #addTiles("http://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png") %>%
-    #     setView(-73.974,40.771,zoom=11) 
-    #   
-    # )
-    # 
-    # 
-    # 
-    # # Add geocoded address when clicked ON FULL MAP
-    # observeEvent(input$button_click_count,{
-    #   v <- geocode_origin()
-    #   print(v)
-    #   leafletProxy('map') %>%
-    #     addCircleMarkers(lng=v$lon,lat=v$lat,color="red",radius=20) %>%
-    #     setView(lng=v$lon,lat=v$lat,zoom=12)
-    # }) 
-    
-    # Table   
-    output$table <- renderDataTable({ mtcars},
-                                    options=list(dom = 'Bfrtip',pageLength=10,scrollX=TRUE,
-                                                 buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
     
   })
 
