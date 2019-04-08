@@ -65,7 +65,8 @@ d <- d %>%  filter(Offense_Category == params$data)
 
 This report desribes `r n_distinct(d$CASE_PARTICIPANT_ID)` `r params$data` defendants.
 
-[^1]: These reports were generated from the data available on the CCSAO open data portal and are probably not accurate! All code required to generate this report is available on [Github](http://github.com/concannon/CookCo).
+**These reports were generated from the data available on the [Cook County State's Attorney Open Data Portal](https://www.cookcountystatesattorney.org/data) and may not be accurate! All code required to generate this report is available on [Github](http://github.com/concannon/CookCo).**
+
 
 ```{r generic summary,echo=F,results='asis', eval = T}
 
@@ -139,54 +140,55 @@ dsp <-
 #================
 
 
-glimpse(d)
 
-# sen <- d %>%
-#   filter(CasesSentenced==1) %>%
-#   group_by(ScreenYear,SentenceType) %>%
-#   summarise(Sentences = n()) %>%
-#   spread(SentenceType,Sentences,fill = 0) %>%
-#   ungroup() %>%
-#   mutate(`Fine (%)` = `Fine`/rowSums(.[,2:ncol(.)]),
-#          `Jail (%)` = `Jail`/rowSums(.[,2:ncol(.)]),
-#          ` Probation (%)` = `Probation`/rowSums(.[,2:ncol(.)]),
-#          `Conditional Discharge (%)` = `Conditional Discharge`/rowSums(.[,2:ncol(.)]),
-#          `Community Service (%)` = `Community Service`/rowSums(.[,2:ncol(.)]),
-#          `Day Custody Program (%)` = `Day Custody Program`/rowSums(.[,2:ncol(.)]),
-#          `Time Served (%)` =  `Time Served`/rowSums(.[,2:ncol(.)]),
-#          `Other (%)` = `Other`/rowSums(.[,2:ncol(.)]),
-#          Sentenced = rowSums(.[,2:ncol(.)])) %>%
-#   select(ScreenYear,
-#          `Fine`,`Fine (%)`,
-#          `Jail`,`Jail (%)`,
-#          `Probation`,` Probation (%)`,
-#          `Conditional Discharge`,`Conditional Discharge (%)`,
-#          `Community Service`,`Community Service (%)`,
-#          `Day Custody Program`,`Day Custody Program (%)`,
-#          `Time Served`,`Time Served (%)`,
-#          `Other`,`Other (%)`,
-#          Sentenced) %>%
-#   t() %>%
-#   as.data.frame() %>%
-#   as_tibble() %>%
-#   rownames_to_column(var = " ") %>%
-#   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>%
-#   filter(` `!="ScreenYear") %>%
-#   mutate_at(vars(-1),as.numeric) %>%
-#   mutate(Total = case_when(grepl("%",` `)==T ~
-#                              lag(rowSums(.[,2:ncol(.)]))/
-#                              rowSums(.[nrow(.),2:ncol(.)]),
-#                            TRUE ~
-#                              rowSums(.[,2:ncol(.)]))) %>%
-#   mutate_at(vars(-1),funs(ifelse(grepl("%",` `)==T,paste0(round(100*.,1),"%"),comma(.,digits = 0))))
+d$sentence_type <- forcats::fct_lump(d$SENTENCE_TYPE, prop = .001)
+
+sen <- d %>%
+   filter(!is.na(sentence_type)) %>%
+   group_by(arrest_year,sentence_type) %>%
+   summarise(Sentences = n()) %>%
+   spread(sentence_type,Sentences,fill = 0) %>%
+   ungroup() %>%
+   mutate( `Probation (%)` = `Probation`/rowSums(.[,2:ncol(.)]),
+         `Jail (%)` = `Jail`/rowSums(.[,2:ncol(.)]),
+         `Prison (%)` = `Prison`/rowSums(.[,2:ncol(.)]),
+         `Cook County Boot Camp (%)` = `Cook County Boot Camp`/rowSums(.[,2:ncol(.)]),
+         `Conditional Discharge (%)` = `Conditional Discharge`/rowSums(.[,2:ncol(.)]),
+         `Other (%)` = `Other`/rowSums(.[,2:ncol(.)]),
+         `Supervision (%)` =  `Supervision`/rowSums(.[,2:ncol(.)]),
+         Sentenced = rowSums(.[,2:ncol(.)])) %>%
+  select(arrest_year,
+         `Prison`,`Prison (%)`,
+         `Jail`,`Jail (%)`,
+         `Probation`,`Probation (%)`,
+         `Cook County Boot Camp`,`Cook County Boot Camp (%)`,
+         `Conditional Discharge`,`Conditional Discharge (%)`,
+         `Supervision`,`Supervision (%)`,
+         `Other`,`Other (%)`,
+         Sentenced) %>%
+   t() %>%
+   as.data.frame() %>%
+   #as_tibble() %>%
+   rownames_to_column(var = " ") %>%
+   set_names(.[1,-1] %>% unlist() %>% as.numeric() %>% as.character() %>% c(" ",.)) %>%
+   filter(` `!="arrest_year") %>%
+   mutate_at(vars(-1),as.numeric) %>%
+   mutate(Total = case_when(grepl("%",` `)==T ~
+                              lag(rowSums(.[,2:ncol(.)]))/
+                              rowSums(.[nrow(.),2:ncol(.)]),
+                            TRUE ~
+                              rowSums(.[,2:ncol(.)]))) %>%
+   mutate_at(vars(-1),funs(ifelse(grepl("%",` `)==T,paste0(round(100*.,1),"%"),comma(.,digits = 0))))
+
+
 
 #================
 #Inline, printing changes
 #================
 
 #Save friendlies for inline reference
-#dspfriendly <- dsp
-#senfriendly <- sen
+dspfriendly <- dsp
+senfriendly <- sen
 
 #Only required when you have percentage signs and want to indent. If you want to indent, you need to dive into Latex and escape the special character of %.
 #dsp[] <- lapply(dsp,gsub,pattern = "%",replacement = "\\%",fixed = T)
@@ -250,9 +252,11 @@ kable(dsp,format = "latex",booktabs = T,
 
 ```
 
-###Disposition Charges
 
 ```{r,echo=F,results='asis', eval = F}
+
+###Disposition Charges
+
 
 kable(dsp_code,format = "latex",booktabs = T,
       align = c("l",rep("c",ncol(dsp_code))),digits = 0,
@@ -266,15 +270,15 @@ kable(dsp_code,format = "latex",booktabs = T,
 
 ###Sentences
 
-```{r,echo=F,results='asis', eval = T}
+```{r,echo=F, results='asis', eval = T}
 
 kable(sen,format = "latex",booktabs = T,
       align = c("l",rep("c",ncol(sen))),digits = 0,
       format.args = list(big.mark = ","),linesep = "",
-      caption = "Prostitution Sentences, 2010 - 2017") %>%
+      caption = paste0(params$data, " Sentences, 2012 - 2018")) %>%
   kable_styling(latex_options = c("striped","HOLD_position","scale_down")) %>%
-  add_indent(c(which(grepl("%",sen$` `)==T))) %>% 
-  row_spec(nrow(sen),bold = T) %>% 
+  add_indent(c(which(grepl("%",sen$` `)==T))) %>%
+  row_spec(nrow(sen),bold = T) %>%
   row_spec(nrow(sen)-1,hline_after = T)
          
 ```

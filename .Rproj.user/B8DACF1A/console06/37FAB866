@@ -581,4 +581,33 @@ mapname:  conversion of  failed
   inflating: .git/objects/fe/0a3a32b0e3349e55d3b863f08da4e32c0e612f  
   inflating: .git/objects/48/335918769fc73ba2ec1b25f8916aa1e066f71f  
   inflating: .git/objects/a2/6e0026096d7c9f410e33d56cd6f9c46913daad  
-]0;/home/connor/Templates]0;connor@datasci-1: ~/Templates[01;32mconnor@datasci-1[00m:[01;34m~/Templates[00m$ 
+cd ..
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ ls
+[0m[34;42mCookCo[0m  [34;42mCookCo_Old[0m  [01;34mDissertation[0m  [01;34mR[0m  [01;34mResumes[0m  [34;42mTemplates[0m  [01;34mbin[0m  [34;42mnifi-1.9.0[0m  [01;31mnifi-1.9.0-bin.tar.gz[0m  sudo
+]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ cd CookCo
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ ls
+ [0m[01;32mCookCo.Rproj[0m   [34;42mdata[0m      [01;32mexploration.r[0m   readme.md   'run cleanup.r'
+ [34;42mOutput[0m         [01;32mdata.py[0m   readme.html     readme.rmd   [01;34mscripts[0m
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/B8DACF1A/console06/37FAB866[m
+	[31mmodified:   .Rproj.user/B8DACF1A/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/B8DACF1A/pcs/files-pane.pper[m
+	[31mmodified:   .Rproj.user/B8DACF1A/pcs/source-pane.pper[m
+	[31mmodified:   .Rproj.user/B8DACF1A/pcs/windowlayoutstate.pper[m
+	[31mmodified:   .Rproj.user/B8DACF1A/pcs/workbench-pane.pper[m
+	[31mmodified:   .Rproj.user/B8DACF1A/sources/prop/37B80BDF[m
+	[31mmodified:   .Rproj.user/B8DACF1A/sources/prop/INDEX[m
+	[31mmodified:   .Rproj.user/shared/notebooks/412E6F4C-By Screen Year/1/s/chunks.json[m
+	[31mmodified:   .Rproj.user/shared/notebooks/paths[m
+	[31mmodified:   Output/Reporting/By Screen Year.rmd[m
+	[31mmodified:   Output/Reporting/By_Screen_Year.pdf[m
+	[31mmodified:   readme.html[m
+	[31mmodified:   readme.rmd[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ git add .
