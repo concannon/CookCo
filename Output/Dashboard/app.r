@@ -16,6 +16,10 @@ sidebar <-  dashboardSidebar(
              selectizeInput(inputId = "charge", label = "Top Charge",
                             choices=c("All", sort(unique(df$`Offense_Category`))),
                             options = list(placeholder = "All"),
+                            multiple = T),
+             selectizeInput(inputId = "dispo", label = "Disposition",
+                            choices=c("All", sort(unique(df$`disp`))),
+                            options = list(placeholder = "All"),
                             multiple = T)
     )
   ))
@@ -64,14 +68,25 @@ shinyApp(
         else filter(.,`arrest_year` >= input$year[1],
                       `arrest_year` <= input$year[2])} %>% 
       {if (is.null(input$charge)) .
-        else filter(., Offense_Category %in% input$charge)}
+        else filter(., Offense_Category %in% input$charge)} %>% 
+      {if (is.null(input$dispo)) .
+        else filter(.,disp %in% input$dispo)}
     })
     
     observe({
-      if("All" %in% input$branch){
+      if("All" %in% input$charge){
         updateSelectizeInput(session = getDefaultReactiveDomain(),
-                             "branch", 
-                             choices = c("All", sort(unique(df$`Home Branch`))),
+                             "charge", 
+                             choices = c("All", sort(unique(df$`Offense_Category`))),
+                             options = list(placeholder = "All"))
+      }
+    })
+    
+    observe({
+      if("All" %in% input$disp){
+        updateSelectizeInput(session = getDefaultReactiveDomain(),
+                             "disp", 
+                             choices = c("All", sort(unique(df$`disp`))),
                              options = list(placeholder = "All"))
       }
     })
@@ -111,16 +126,18 @@ shinyApp(
     output$plot_defendants <- renderPlotly({
       
       p1 <- dataset_filtered() %>% 
+        
+      #  df %>% 
         group_by(arrest_year) %>% 
         summarise(Defendants = n()) %>% 
         ggplot(aes(arrest_year, Defendants))+
-        geom_bar(stat = "identity")+
+        geom_bar(stat = "identity", fill = colors["kellygreen"])+
         theme_minimal()+
         theme(legend.position = "none")+
         scale_y_continuous()+
         labs(title = "Defendants by Year",
              y = "# of Defendants",
-             x = "Arrest Year") 
+             x = "Arrest Year")
       
       ggplotly(p1, tooltip = c("y", "label"))
     })
@@ -134,7 +151,7 @@ shinyApp(
         summarise(Defendants = n()) %>% 
         mutate(Percent = Defendants/sum(Defendants)) %>% 
         ggplot(aes(reorder(Disposition, Percent), Percent))+
-        geom_bar(stat = "identity")+
+        geom_bar(stat = "identity", fill = colors["kellygreen"])+
         coord_flip()+
         theme_minimal()+
         
@@ -157,7 +174,7 @@ shinyApp(
         mutate(Percent = Defendants/sum(Defendants)) %>% 
         top_n(n = 15, wt = Percent) %>% 
         ggplot(aes(reorder(Category, Percent), Percent))+
-        geom_bar(stat = "identity")+
+        geom_bar(stat = "identity", fill = colors["kellygreen"])+
         coord_flip()+
         theme_minimal()+
         theme(legend.position = "none")+
@@ -179,10 +196,9 @@ shinyApp(
         summarise(Defendants = n()) %>% 
         mutate(Percent = Defendants/sum(Defendants)) %>% 
         ggplot(aes(reorder(Sentence, Percent), Percent))+
-        geom_bar(stat = "identity")+
+        geom_bar(stat = "identity", fill = colors["kellygreen"])+
         coord_flip()+
         theme_minimal()+
-        
         theme(legend.position = "none")+
         scale_y_continuous(labels = scales::percent)+
         labs(title = "Sentences",
