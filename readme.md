@@ -1,0 +1,92 @@
+
+
+```{r setup, include = F, echo = F}
+
+knitr::opts_chunk$set(eval = F, echo = F, warning=F, message=F, cache=F, fig.width=12, fig.height=8)
+
+```
+
+# Cook County Open Data Reporting
+
+This repository contains the code necessary to download, clean, and analyze data released by the Cook County State's Attorney (CCSAO) in February 2018. Information about the CCSAO and the datasets are available [here](https://www.cookcountystatesattorney.org/data).
+
+This repository focuses on the process required to make this data 'tidy' using the `r` language
+
+## Environment
+
+This analysis took place on a [Digital Ocean](https://www.digitalocean.com/) data science droplet with default (2 Gb memory and 50 Gb of storage) specifications running Ubuntu 18.04. This droplet cost $10 per month. To generate reports and analyses using R, a handful of dependencies were required. The next section lists each installation and the commands that are required. 
+
+This is a very bare-bones guide. There are many in-depth walkthroughs available that provide a more thorough treatment of the process, such as Dean Attali's [How to get your very own RStudio Server and Shiny Server with DigitalOcean](https://deanattali.com/2015/05/09/setup-rstudio-shiny-server-digital-ocean/).
+
+### R and R Packages
+
+[R](https://www.r-project.org/) is a free software tool for data analysis and manipulation. This set of commands will download R, as well as several add-on packages for data analysis. This will also install several packages related to creating reports and dashboards such as [R Markdown](https://rmarkdown.rstudio.com/) and [Shiny](https://shiny.rstudio.com) which translate code and analysis into presentation-ready documents and dashboards.
+
+
+```{r, eval = F}
+
+sudo sh -c 'echo "deb http://cran.rstudio.com/bin/linux/ubuntu/bionic-cran35" >> /etc/apt/sources.list'
+gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
+gpg -a --export E084DAB9 | sudo apt-key add -
+  sudo apt-get update && sudo apt-get -y install r-base
+
+```
+
+
+
+```{r, eval = F}
+
+sudo su - -c "R -e \"install.packages(c('rmarkdown', 'knitr', 'kableExtra', 'here', 'tidyverse', 'tidyr', 'ggplot2', 'DescTools', 'xtable', 'stringr', 'lubridate', 'DT', 'forcats', 'skimr', 'feather', 'shiny'), repos='http://cran.rstudio.com/')\""
+
+```
+
+### R Studio
+
+[R Studio](http://Rstudio.org) is an integrated development environment (IDE) that sits on top of R. It allows the user to work with their code, output, and relevant files simultaneously. 
+
+```{r}
+
+sudo apt-get -y install libcurl4-gnutls-dev libxml2-dev libssl-dev
+sudo apt-get -y install gdebi-core
+wget https://download2.rstudio.org/rstudio-server-1.1.463-amd64.deb
+sudo gdebi rstudio-server-1.1.463-amd64.deb
+
+
+```
+
+### Miktex
+
+```{r}
+
+sudo apt-get install xorg libx11-dev libglu1-mesa-dev libfreetype6-dev
+
+```
+
+
+### Swap Space
+
+The droplet is very small, and sometimes may run out of available memory to complete some of the installations. In this case, you need to free up swap space or buy a bigger machine! Freeing up the swap space is very easy.. 
+
+```{r}
+
+Sudo swapoff -a
+sudo /bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024
+sudo /sbin/mkswap /var/swap.1
+sudo /sbin/swapon /var/swap.1
+sudo sh -c 'echo "/var/swap.1 swap swap defaults 0 0 " >> /etc/fstab'
+
+```
+
+## Download Data
+
+
+## Clean
+
+
+## Join
+
+
+## Report
+
+
+## Dashboard
