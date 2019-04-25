@@ -9,7 +9,7 @@ This repository focuses on the process required to make this data 'tidy' using t
 
 
 <p>
-    <img src="/media/Digital Ocean.png" width="2300" height="950" />
+    <img src="/media/Digital Ocean.png" width="1536" height="1024" />
 </p>
 
 This analysis took place on a [Digital Ocean](https://www.digitalocean.com/) data science droplet with default (2 Gb memory and 50 Gb of storage) specifications running Ubuntu 18.04. This droplet cost $10 per month. To generate reports and analyses using R, a handful of dependencies were required. The next section lists each installation and the commands that are required. 
@@ -78,7 +78,7 @@ sudo sh -c 'echo "/var/swap.1 swap swap defaults 0 0 " >> /etc/fstab'
 ## Download Data
 
 <p>
-    <img src="/media/Cook County Open Data Portal.png" width="2300" height="950" />
+    <img src="/media/Cook County Open Data Portal.png" width="1536" height="1024" />
 </p>
 
 The data is hosted on the [Cook County Government Open Data Portal](https://datacatalog.cookcountyil.gov/browse?tags=state%27s+attorney+case-level&sortBy=most_accessed), and can be downloaded manually via the browser. Alternatively, you can download the files programatically via the `download_data.r` file.
