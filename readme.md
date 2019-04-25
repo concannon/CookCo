@@ -1,7 +1,7 @@
 
 # Cook County Open Data Reporting
 
-This repository contains the code necessary to download, clean, and analyze data released by the Cook County State's Attorney (CCSAO) in February 2018. Information about the CCSAO and the datasets are available [here](https://www.cookcountystatesattorney.org/data).
+This repository contains the code necessary to download, clean, and analyze data released by the Cook County State's Attorney (CCSAO) in February 2018. Information about the CCSAO and the data sets are available [here](https://www.cookcountystatesattorney.org/data).
 
 This repository focuses on the process required to make this data 'tidy' using the `r` language
 
@@ -92,7 +92,7 @@ The `scripts` folder contains a number of files that will clean each data set. T
 * disposition
 * sentence
 
-In many contexts, these files will evolve over time. For this project, these contain rudimentary logic to identify the top charge, reorder charges, and save clean datasets. Finally there is a script to join the files and save a final, cleaned dataset.
+In many contexts, these files will evolve over time. For this project, these contain rudimentary logic to identify the top charge, reorder charges, and save clean data sets. Finally there is a script to join the files and save a final, cleaned data set.
 
 The `join_file` script also creates dummy variables for several fields to ease later reporting and summarizing.
 
@@ -104,7 +104,7 @@ The `join_file` script also creates dummy variables for several fields to ease l
     <img src="/media/rmarkdown.png"/>
 </p>
 
-The `output/Reporting` directory contains an RMarkdown file that will help generate a standardized report of cases, dispositions, and sentences by year. [RMarkdown](https://rmarkdown.rstudio.com/) is a framework to generate reports and ensure they are reproducible and standardized.
+The `output/Reporting` directory contains an R Markdown file that will help generate a standardized report of cases, dispositions, and sentences by year. [RMarkdown](https://rmarkdown.rstudio.com/) is a framework to generate reports and ensure they are reproducible and standardized.
 
 At the beginning of the file, this report expects the user to enter a charge type (in this case narcotics), which filters the data and generates intake and disposition statistics for only narcotics cases.
 
@@ -115,16 +115,16 @@ The bulk of this file is summarizing and formatting case processing statistics a
 
 
 <p>
-    <img src="/media/Shiny.jpeg"/>
+    <img src="/media/shiny.jpeg"/>
 </p>
 
-The previous steps enabled me to create an interactive dashboard of case processing statistics, using the [Shiny](http://shiny.rstudio.com/) framework. This is also an R-based language, that extends the tidy mantra and makes analyses interactive. The Shiny package is very well documented, and the specifics about creating the dashboard are beyond the scope of this repository. In short, the developer is responsible for accepting user inputs and filtering or manipulating the dataset based on those inputs. A handful of thorough walkthroughs on Shiny are linked below.
+The previous steps enabled me to create an interactive dashboard of case processing statistics, using the [Shiny](http://shiny.rstudio.com/) framework. This is also an R-based language, that extends the tidy mantra and makes analyses interactive. The Shiny package is very well documented, and the specifics about creating the dashboard are beyond the scope of this repository. In short, the developer is responsible for accepting user inputs and filtering or manipulating the data set based on those inputs. A handful of thorough walkthroughs on Shiny are linked below.
 
 * [Welcome to Shiny](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
 * [Shiny Dashboard](https://rstudio.github.io/shinydashboard/)
 * [Building Shiny Apps](https://deanattali.com/blog/building-shiny-apps-tutorial/)
 
-The dashboard is available [at this link](http://178.128.232.146:3838/CookCo)
+With this dashboard, I can quickly see that drug and weapon cases account for a significant portion of the caseload, and that most defendants that are sentenced are sentenced to prison or probation terms. The dashboard allows users to filter by charge, arrest year, age, race, and gender. The dashboard is available [at this link](http://178.128.232.146:3838/CookCo)
 
 
 <p>
@@ -134,4 +134,4 @@ The dashboard is available [at this link](http://178.128.232.146:3838/CookCo)
 
 ## Conclusion
 
-Hopefully, this repository demonstrates one way to transform raw data into useable information for stakeholders. I hope that others can take the methods used in this brief demonstration and extend it in their own jurisdictions.
+Hopefully, this repository demonstrates one way to transform raw data into usable information for stakeholders. I hope that others can take the methods used in this brief demonstration and extend it in their own jurisdictions.
