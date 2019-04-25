@@ -9,7 +9,7 @@ This repository focuses on the process required to make this data 'tidy' using t
 
 
 <p>
-    <img src="/media/Digital Ocean.png" width="1536" height="1024" />
+    <img src="/media/Digital Ocean.png"/>
 </p>
 
 This analysis took place on a [Digital Ocean](https://www.digitalocean.com/) data science droplet with default (2 Gb memory and 50 Gb of storage) specifications running Ubuntu 18.04. This droplet cost $10 per month. To generate reports and analyses using R, a handful of dependencies were required. The next section lists each installation and the commands that are required. 
@@ -78,18 +78,60 @@ sudo sh -c 'echo "/var/swap.1 swap swap defaults 0 0 " >> /etc/fstab'
 ## Download Data
 
 <p>
-    <img src="/media/Cook County Open Data Portal.png"  />
+    <img src="/media/Cook County Open Data Portal.png"/>
 </p>
 
 The data is hosted on the [Cook County Government Open Data Portal](https://datacatalog.cookcountyil.gov/browse?tags=state%27s+attorney+case-level&sortBy=most_accessed), and can be downloaded manually via the browser. Alternatively, you can download the files programatically via the `download_data.r` file.
 
 ## Clean
 
+The `scripts` folder contains a number of files that will clean each data set. The data sets downloaded from the Cook County Open Data Portal are:
 
-## Join
+* initiation
+* intake
+* disposition
+* sentence
 
+In many contexts, these files will evolve over time. For this project, these contain rudimentary logic to identify the top charge, reorder charges, and save clean datasets. Finally there is a script to join the files and save a final, cleaned dataset.
+
+The `join_file` script also creates dummy variables for several fields to ease later reporting and summarizing.
+
+**Important caveat: I have not validated the logic I used to tidy these datasets with anyone from the CCSAO. The repository is for demonstration purposes only and should not be interpreted as official or accurate CCSAO statistics.**
 
 ## Report
 
+<p>
+    <img src="/media/rmarkdown.png"/>
+</p>
+
+The `output/Reporting` directory contains an RMarkdown file that will help generate a standardized report of cases, dispositions, and sentences by year. [RMarkdown](https://rmarkdown.rstudio.com/) is a framework to generate reports and ensure they are reproducible and standardized.
+
+At the beginning of the file, this report expects the user to enter a charge type (in this case narcotics), which filters the data and generates intake and disposition statistics for only narcotics cases.
+
+The bulk of this file is summarizing and formatting case processing statistics and readying them for presentation. If everything is installed, you can 'knit' the file by pressing `CTRL+SHIFT+K`, and the file will generate. If not, a sample report is included in the repository.
+
 
 ## Dashboard
+
+
+<p>
+    <img src="/media/Shiny.jpeg"/>
+</p>
+
+The previous steps enabled me to create an interactive dashboard of case processing statistics, using the [Shiny](http://shiny.rstudio.com/) framework. This is also an R-based language, that extends the tidy mantra and makes analyses interactive. The Shiny package is very well documented, and the specifics about creating the dashboard are beyond the scope of this repository. In short, the developer is responsible for accepting user inputs and filtering or manipulating the dataset based on those inputs. A handful of thorough walkthroughs on Shiny are linked below.
+
+* [Welcome to Shiny](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
+* [Shiny Dashboard](https://rstudio.github.io/shinydashboard/)
+* [Building Shiny Apps](https://deanattali.com/blog/building-shiny-apps-tutorial/)
+
+The dashboard is available [at this link](http://178.128.232.146:3838/CookCo)
+
+
+<p>
+    <img src="/media/CookCoDashboard.png"/>
+</p>
+
+
+## Conclusion
+
+Hopefully, this repository demonstrates one way to transform raw data into useable information for stakeholders. I hope that others can take the methods used in this brief demonstration and extend it in their own jurisdictions.
