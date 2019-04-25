@@ -72,7 +72,7 @@ sudo sh -c 'echo "/var/swap.1 swap swap defaults 0 0 " >> /etc/fstab'
 
 ## Download Data
 
-![alt text](media/Cook County Open Data Portal.png)
+![alt text](/media/Cook County Open Data Portal.png)
 
 
 The data is hosted on the [Cook County Government Open Data Portal](https://datacatalog.cookcountyil.gov/browse?tags=state%27s+attorney+case-level&sortBy=most_accessed), and can be downloaded manually via the browser. Alternatively, you can download the files programatically via the `download_data.r` file.
