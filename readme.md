@@ -1,11 +1,4 @@
 
-
-```{r setup, include = F, echo = F}
-
-knitr::opts_chunk$set(eval = F, echo = F, warning=F, message=F, cache=F, fig.width=12, fig.height=8)
-
-```
-
 # Cook County Open Data Reporting
 
 This repository contains the code necessary to download, clean, and analyze data released by the Cook County State's Attorney (CCSAO) in February 2018. Information about the CCSAO and the datasets are available [here](https://www.cookcountystatesattorney.org/data).
@@ -79,6 +72,10 @@ sudo sh -c 'echo "/var/swap.1 swap swap defaults 0 0 " >> /etc/fstab'
 
 ## Download Data
 
+![alt text](media/Cook County Open Data Portal.png)
+
+
+The data is hosted on the [Cook County Government Open Data Portal](https://datacatalog.cookcountyil.gov/browse?tags=state%27s+attorney+case-level&sortBy=most_accessed), and can be downloaded manually via the browser. Alternatively, you can download the files programatically via the `download_data.r` file.
 
 ## Clean
 
