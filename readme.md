@@ -5,6 +5,9 @@ This repository contains the code necessary to download, clean, and analyze data
 
 This repository focuses on the process required to make this data 'tidy' using the `r` language
 
+**[See the finished dashboard here](http://178.128.232.146:3838/CookCo/)**
+
+
 ## Environment
 
 

@@ -1,77 +1,4 @@
 
-]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ ls -l
-total 8
--rw-r--r-- 1 connor connor  205 Feb 20 10:28 CookCo.Rproj
-drwxr-xr-x 2 root   root   4096 Feb 20 10:35 [0m[01;34mdata[0m
-]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ sudo chmod -R 777 .
-]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ sudo chmod -R 777 .ls -l[K
-total 8
--rwxrwxrwx 1 connor connor  205 Feb 20 10:28 [0m[01;32mCookCo.Rproj[0m
-drwxrwxrwx 2 root   root   4096 Feb 20 10:35 [34;42mdata[0m
-[K]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ cd ..
-]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ ls
-[0m[34;42mCookCo[0m  [01;34mDissertation[0m  [01;34mR[0m
-]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=0[K1 -O templates.zip[1@w[1@g[1@e[1@t[1@ 
---2019-03-07 02:19:22--  https://www.dropbox.com/sh/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa?dl=1
-Resolving www.dropbox.com (www.dropbox.com)... 162.125.11.1, 2620:100:6050:1::a27d:b01
-Connecting to www.dropbox.com (www.dropbox.com)|162.125.11.1|:443... connected.
-HTTP request sent, awaiting response... 301 Moved Permanently
-Location: /sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa [following]
---2019-03-07 02:19:22--  https://www.dropbox.com/sh/dl/de3xls4gyagad76/AAC1g6_kNZ1-GBGAdMYWR0SBa
-Reusing existing connection to www.dropbox.com:443.
-HTTP request sent, awaiting response... 302 Found
-Location: https://ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckEm-S74zwEjqmBVji1RV62Iu3f3gAi0UJ3NmWU20JSFY-nD5aiLAVhLu1sZCUl92Fl_YCBZIO-gZwH8zfywNqGsbYXOt_czdC_VbZHlTxrxLRLYdTuH0la0OUKBFvwCQ-VTsIZW-1VpxWTJFPWbPsdZKWT2jFRMzV-iDKJ3gWP4Vad10EBZQkdFdCL_2xj6v7440F7sw3avXcpDdXq8aLHng34p7lsy5HtOlWfh0uze11unHo-igLre0MHV6jveY3GOBdgq57DRU8UkW5ChFiU [following]
---2019-03-07 02:19:22--  https://ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com/zip_by_token_key?dl=1&key=AckEm-S74zwEjqmBVji1RV62Iu3f3gAi0UJ3NmWU20JSFY-nD5aiLAVhLu1sZCUl92Fl_YCBZIO-gZwH8zfywNqGsbYXOt_czdC_VbZHlTxrxLRLYdTuH0la0OUKBFvwCQ-VTsIZW-1VpxWTJFPWbPsdZKWT2jFRMzV-iDKJ3gWP4Vad10EBZQkdFdCL_2xj6v7440F7sw3avXcpDdXq8aLHng34p7lsy5HtOlWfh0uze11unHo-igLre0MHV6jveY3GOBdgq57DRU8UkW5ChFiU
-Resolving ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com (ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com)... 162.125.11.6, 2620:100:6050:6::a27d:b06
-Connecting to ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com (ucc6c9a678b5a7819fd26dd8abb8.dl.dropboxusercontent.com)|162.125.11.6|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [application/zip]
-Saving to: ‘templates.zip’
-
-templates.zip                         [<=>                                                        ]       0  --.-KB/s               templates.zip                         [ <=>                                                       ]  23.03K  20.8KB/s               templates.zip                         [  <=>                                                      ] 183.01K  78.1KB/s               templates.zip                         [   <=>                                                     ] 303.01K   112KB/s               templates.zip                         [    <=>                                                    ] 575.00K   182KB/s               templates.zip                         [     <=>                                                   ] 830.99K   242KB/s               templates.zip                         [      <=>                                                  ]   1.54M   391KB/s               templates.zip                         [       <=>                                                 ]   1.79M   371KB/s               templates.zip                         [        <=>                                                ]   2.04M   355KB/s               templates.zip                         [         <=>                                               ]   2.04M   306KB/s               templates.zip                         [          <=>                                              ]   2.29M   330KB/s               templates.zip                         [           <=>                                             ]   2.56M   368KB/s    in 7.1s    
-
-2019-03-07 02:19:32 (368 KB/s) - ‘templates.zip’ saved [2680880]
-
-]0;/home/connor]0;connor@datasci-1: ~[01;32mconnor@datasci-1[00m:[01;34m~[00m$ unzip templates.zip
-Archive:  templates.zip
-warning:  stripped absolute path spec from /
-mapname:  conversion of  failed
-  inflating: .git/objects/c6/d4818069cac126ad3e5306043d62247527a22e  
-  inflating: .git/logs/refs/heads/master  
-  inflating: .git/objects/b5/866e97e7be9fba7df84fe87667a27b9f25c0da  
-  inflating: .git/objects/b3/8d0ec4db5445763d876429d11f6d5f90c9f410  
-  inflating: .git/objects/d1/2aec8a575540aaddc5b2e1dbe0849886d55799  
-  inflating: .git/hooks/pre-commit.sample  
-  inflating: .git/objects/c0/8072652854e5ce36f08a4581cd1de3f023592b  
-   creating: .git/objects/c7/
-   creating: .git/objects/c4/
-  inflating: FOIL/DANY Crime FOIL.pdf  
-   creating: .git/objects/c3/
-   creating: .git/objects/c1/
-  inflating: .git/hooks/pre-rebase.sample  
-   creating: DOC Today/
-  inflating: .git/objects/74/eb438d14d1dcf69075253ea2383a664abb2d78  
-  inflating: .git/objects/cf/36196f178ae463607c6998831bdffd5f823f6d  
-  inflating: ATI/.Rhistory           
-  inflating: .git/objects/e6/9de29bb2d1d6434b8b29ae775ad8c2e48c5391  
-  inflating: .git/objects/0e/34ef5a86f65d6b0427c6d571b3829754c31e09  
-   creating: .git/objects/4f/
-   creating: .git/objects/4e/
-  inflating: .git/ORIG_HEAD          
-  inflating: .git/HEAD               
-  inflating: .git/objects/66/1c2c9c2fbc10f43f134169d0a6438abc3ee67f  
-   creating: Sealed Cases/
-   creating: .git/objects/72/
-   creating: .git/objects/70/
-   creating: .git/objects/71/
-   creating: .git/objects/77/
-   creating: .git/objects/75/
-  inflating: .git/objects/d7/03046033a5d11f4566cb8982ed0423900cc147  
-  inflating: .git/objects/65/dbc10b758b29b51f3e85f3070639b4abbbe0c4  
-  inflating: .git/hooks/update.sample  
-  inflating: .git/objects/ce/b3fd3e3f321aae571f20a026392c2410aa1a7b  
-  inflating: .git/objects/b6/0374368bbe2dd7eac656d0db894375741995ea  
-  inflating: doc today/DOC Detailed/.Rhistory  
   inflating: .git/objects/e9/5f7173a06caf5054ceed8af1e85903d0746e95  
   inflating: .git/objects/27/1b24248f67b8dc5594c37fbee14fe9dd3dafbc  
    creating: .git/objects/pack/
@@ -1055,6 +982,35 @@ Changes not staged for commit:
 
 	[31mmodified:   .Rproj.user/B8DACF1A/console06/37FAB866[m
 	[31mmodified:   .Rproj.user/B8DACF1A/console06/37FAB866.env[m
+	[31mmodified:   readme.md[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ git add .
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ git commit -m 'finalize readme'
+[master 48cae30] finalize readme
+ 3 files changed, 40 insertions(+), 10 deletions(-)
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ git push origin master
+Username for 'https://github.com': concannon
+Password for 'https://concannon@github.com': 
+Counting objects: 8, done.
+Compressing objects:  12% (1/8)   Compressing objects:  25% (2/8)   Compressing objects:  37% (3/8)   Compressing objects:  50% (4/8)   Compressing objects:  62% (5/8)   Compressing objects:  75% (6/8)   Compressing objects:  87% (7/8)   Compressing objects: 100% (8/8)   Compressing objects: 100% (8/8), done.
+Writing objects:  12% (1/8)   Writing objects:  25% (2/8)   Writing objects:  37% (3/8)   Writing objects:  50% (4/8)   Writing objects:  62% (5/8)   Writing objects:  75% (6/8)   Writing objects:  87% (7/8)   Writing objects: 100% (8/8)   Writing objects: 100% (8/8), 1.45 KiB | 1.45 MiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/5)   [Kremote: Resolving deltas:  20% (1/5)   [Kremote: Resolving deltas:  40% (2/5)   [Kremote: Resolving deltas:  60% (3/5)   [Kremote: Resolving deltas:  80% (4/5)   [Kremote: Resolving deltas: 100% (5/5)   [Kremote: Resolving deltas: 100% (5/5), completed with 5 local objects.[K
+To https://github.com/concannon/CookCo.git
+   014c967..48cae30  master -> master
+ls
+[0m[01;32mCookCo.Rproj[0m  [34;42mOutput[0m  [34;42mdata[0m  [01;34mmedia[0m  readme.html  readme.md  readme.rmd  [01;34mscripts[0m
+]0;/home/connor/CookCo]0;connor@datasci-1: ~/CookCo[01;32mconnor@datasci-1[00m:[01;34m~/CookCo[00m$ giyt stat[K[K[K[K[K[K[Kt status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	[31mmodified:   .Rproj.user/B8DACF1A/console06/37FAB866[m
+	[31mmodified:   .Rproj.user/B8DACF1A/console06/INDEX001[m
+	[31mmodified:   .Rproj.user/B8DACF1A/pcs/source-pane.pper[m
+	[31mmodified:   .Rproj.user/B8DACF1A/persistent-state[m
 	[31mmodified:   readme.md[m
 
 no changes added to commit (use "git add" and/or "git commit -a")
